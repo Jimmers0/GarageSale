@@ -1,0 +1,21 @@
+#landingWrapper {
+    width: 1400px;
+    height: 100vh;
+    margin: auto;
+}
+#searchForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 800px;
+    padding-top: 100px;
+}
+#zip {
+    width: 300px;
+    height: 50px;
+    font-size: 25px;
+    text-indent: 10px;
+    margin-bottom: 10px;
+}
