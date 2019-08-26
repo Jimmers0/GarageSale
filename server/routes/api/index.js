@@ -1,9 +1,9 @@
 const router = require('express').Router()
 const conn = require('../../db/')
 const axios = require('axios')
-​
+
 let finalObj = []
-​
+
 router.get('/greeting', (req, res, next) => {
   res.json({
     "greeting": "Hello World!"
@@ -23,5 +23,5 @@ router.get('/getPosts/:zip', (req, res, next) => {
     finalObj = []
   })
 })
-​
+
 module.exports = router
