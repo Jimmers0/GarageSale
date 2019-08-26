@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-import {Form, Button, Menu} from 'semantic-ui-react'
+import {Form, Button} from 'semantic-ui-react'
 import '../styles/landing.css'
+import Navbar from './Navbar'
 
 export default props => {
 const [zip, setZip] = useState('')
@@ -8,18 +9,7 @@ const [zip, setZip] = useState('')
     return (
         <div id="landingWrapper">
             <div id="nav">
-            <Menu inverted>
-        <Menu.Item
-          name='home'
-          active={true}
-        />
-        <Menu.Item
-          name='about'
-        />
-        <Menu.Item
-          name='FAQ'
-        />
-      </Menu>
+                <Navbar/>
             </div>
             <div id="search">
                 <Form id="searchForm">

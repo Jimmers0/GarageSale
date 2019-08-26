@@ -11,7 +11,7 @@ export default props => {
   return (
     <Provider store={store}>
       <Router>
-        <Route path="/" component={Landing}/>
+        <Route exact path="/" component={Landing}/>
       </Router>
     </Provider>
   )

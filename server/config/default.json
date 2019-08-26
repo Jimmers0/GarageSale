@@ -1,8 +1,8 @@
 {
   "db": {
     "host": "localhost",
-    "user": "",
+    "user": "root",
     "password": "",
-    "database": ""
+    "database": "garagesale"
   }
 }
