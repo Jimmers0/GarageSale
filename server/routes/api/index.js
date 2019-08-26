@@ -37,5 +37,12 @@ router.get('/items', (req, res, next) => {
     res.json(result)
   })
 })
+router.post('/createPost', (req, res, next) => {
+  console.log(req.body.name)
+  const sql = `INSERT INTO posts (name, date, active, user_id, zip, city, state, address) VALUES (?,?,?,?,?,?,?,?)`
+  conn.query(sql, [req.body.name, req.body.date, true, req.body.user_id, req.body.zip, req.body.city, req.body.state, req.body.address], (err, result, fields) => {
+
+  })
+})
 
 module.exports = router

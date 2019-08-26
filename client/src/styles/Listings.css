@@ -3,6 +3,7 @@
 }
 
 .salepost {
+    position: relative;
     background: rgb(211, 211, 211, .6);
     margin: 5px 10px 5px 10px;
     border-radius: 10px;
@@ -17,3 +18,7 @@
     
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}

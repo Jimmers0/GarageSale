@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Landing from './Landing'
 import Listings from './Listings'
 import Post from './Post'
+import Add from './Add'
 
 export default props => {
 
@@ -16,6 +17,7 @@ export default props => {
         <Route exact path="/" component={Landing}/>
         <Route path="/search/:zip" component={Listings}/>
         <Route path="/post/:id" component={Post}/>
+        <Route path="/add" component={Add}/>
       </Router>
     </Provider>
   )

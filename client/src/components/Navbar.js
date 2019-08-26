@@ -1,27 +1,28 @@
 import React, { useState } from 'react'
 import {Menu} from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
 
 export default props => {
     const [activeNav, setActiveNav] = useState('')
-    console.log(props)
 
     return (
         <Menu inverted>
+          <Link to="/">
         <Menu.Item
           name='Search'
           active={activeNav === "search"}
-          onClick={e => setActiveNav('search')}
-        />
+          value="search"
+        /></Link>
+        <Link to="/add">
         <Menu.Item
           name='Post'
           active={activeNav === "post"}
-          onClick={e => setActiveNav('post')}
-        />
+        /></Link>
+        <Link to="/">
         <Menu.Item
           name='FAQ'
           active={activeNav === "faq"}
-          onClick={e => setActiveNav('faq')}
-        />
+        /></Link>
       </Menu>
     )
 }
