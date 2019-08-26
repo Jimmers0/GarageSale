@@ -6,6 +6,7 @@ import store from '../store'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Landing from './Landing'
 import Listings from './Listings'
+import Post from './Post'
 
 export default props => {
 
@@ -14,6 +15,7 @@ export default props => {
       <Router>
         <Route exact path="/" component={Landing}/>
         <Route path="/search/:zip" component={Listings}/>
+        <Route path="/post/:id" component={Post}/>
       </Router>
     </Provider>
   )

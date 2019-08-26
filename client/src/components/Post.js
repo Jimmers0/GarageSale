@@ -1,31 +1,41 @@
 import React, {useState, useEffect } from 'react'
-import {getPost, sendPost} from '../actions/posting.actions'
+import {useSelector} from 'react-redux'
+import {getPosts, getItems} from '../actions/posting.actions'
 
 
 export default props =>{
-
-    const[id, setid]= useState('')
+    const [id, setid] = useState('')
+    const post = useSelector(appState => appState.post)
+    const items = useSelector(appState => appState.items)
+    console.log(post)
     
-
-
-useEffect (() => { 
-getPost(props)
-},[props])
+    useEffect (() => {
+        getPosts(props.match.params.id)
+        getItems(props.match.params.id)
+    },[props.match.params.id])
  
 
 function handleSubmit(e) {
 e.preventDefault()
-sendPost (id)
 
-}   
+}
 
 return (
     <div>
-        <h1>Posting{id}</h1>
-        <form className="id"onSubmit={handleSubmit}>
-            <label htmlFor="id">id</label>
-            <input id="id" type="text" name="id" value={id} onChange={e => setid(e.target.value)}/>
-        </form>
+        {post.map(item => {
+            return(
+                <div>
+            <h1>{item.name}</h1>
+            {items.map(element => {
+                return(
+                    <div>
+                        <p>{element.name}</p>
+                    </div>
+                )
+            })}
+            </div>
+            )
+        })}
     </div>
 )
 }

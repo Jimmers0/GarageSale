@@ -27,5 +27,15 @@ router.get('/getPosts/:zip', (req, res, next) => {
     })
   })
 })
+router.get('/post', (req, res, next) => {
+  conn.query(`SELECT * FROM posts where id = ${req.query.id}`, (err, result, fields) => {
+    res.json(result)
+  })
+})
+router.get('/items', (req, res, next) => {
+  conn.query(`SELECT * FROM items where post_id = ${req.query.id}`, (err, result, fields) => {
+    res.json(result)
+  })
+})
 
 module.exports = router
