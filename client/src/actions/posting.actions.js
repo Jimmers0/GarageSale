@@ -26,4 +26,16 @@ export function sendPost(Id){
       getPosts()
     })
   }
-  
+
+export function createPost(name, city, state, zip, address, date) {
+  axios.post('/api/createPost', {
+    name: name,
+    city: city,
+    state: state,
+    zip: zip,
+    address: address,
+    date: date
+  }).then(resp => {
+    console.log(resp.data)
+  })
+}
