@@ -2,7 +2,7 @@ import store from '../store'
 import axios from 'axios'
 import io from 'socket.io-client'
 
-// MUST CHANGE localhost to IP ADDRESS
+// MUST CHANGE localhost to IP ADDRESSs
 const socket = io.connect('http://localhost:8000')
 
 socket.on('new person', name => {
