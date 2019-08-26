@@ -3,6 +3,12 @@ import axios from 'axios'
 
 export function grabPosts(zip) {
     axios.get('/api/getPosts/' + zip).then(resp => {
+        store.dispatch({
+            type: 'LISTINGS',
+            payload: resp.data
+        })
+            
         
     })
 }
+
