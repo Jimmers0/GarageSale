@@ -13,6 +13,7 @@ export default props => {
     <Provider store={store}>
       <Router>
         <Route exact path="/" component={Landing}/>
+        <Route path="/search/:zip" component={Listings}/>
       </Router>
     </Provider>
   )

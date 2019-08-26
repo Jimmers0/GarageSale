@@ -1,11 +1,11 @@
 const initialState = {
-  greeting: ''
+  listings : []
 }
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case 'GREETING':
-      return {...state, greeting: action.payload}
+    case 'LISTINGS':
+      return {...state, listings: action.payload}
     default:
       return state
   }

@@ -1,59 +1,21 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Form, Button} from 'semantic-ui-react'
 import '../styles/Listings.css'
 import Navbar from './Navbar'
+import { useSelector } from 'react-redux'
+import { grabPosts } from '../actions/landing.actions'
 
 export default props => {
 
-    let userzip = '89178'
+    const sales = useSelector(appState => appState.listings)
 
-    let sales = [
-        {
-            name: "garagesale",
-            date: "26-08-2019",
-            city: "Las Vegas",
-            State: "Nevada",
-            zip: "89178",
-            distance: "10"
+    useEffect(() => {
+        grabPosts(props.match.params.zip)
 
-        },
-        {
-            name: "garagesale",
-            date: "26-08-2019",
-            city: "Las Vegas",
-            State: "Nevada",
-            zip: "89175",
-            distance: "10"
+    }, [props.match.params.zip])
+ 
+    console.log(sales)
 
-        },
-        {
-            name: "garagesale",
-            date: "26-08-2019",
-            city: "Las Vegas",
-            State: "Nevada",
-            zip: "89174",
-            distance: "15"
-
-        },
-        {
-            name: "garagesale",
-            date: "26-08-2019",
-            city: "Las Vegas",
-            State: "Nevada",
-            zip: "89173",
-            distance: "2"
-
-        },
-        {
-            name: "garagesale",
-            date: "26-08-2019",
-            city: "Las Vegas",
-            State: "Nevada",
-            zip: "89178",
-            distance: "10"
-
-        },
-    ]
 
 return (
     <div>
@@ -65,10 +27,10 @@ return (
                     <strong>{sale.name}</strong> {sale.date} 
                     </div>
                     <div>
-                    {sale.city}, {sale.State}.
+                    {sale.city}, {sale.state}.
                     </div> 
                     <div>
-                    {sale.zip === userzip ? "In your area" : `Distance: ${sale.distance}` }
+                    {sale.zip === props.match.params.zip ? "In your area" : `Distance: ${sale.distance}` }
                     </div>
 
 
