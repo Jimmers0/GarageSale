@@ -1,5 +1,7 @@
 .salepostcontainer {
     text-align: center; 
+    
+    
 }
 
 .salepost {
@@ -22,3 +24,9 @@ a {
     text-decoration: none;
     color: black;
 }
+
+.t {
+    height: 550px;
+    width: 100%;
+}
+
