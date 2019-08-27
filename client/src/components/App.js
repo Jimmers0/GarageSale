@@ -22,7 +22,7 @@ import {
 
 export default props => {
 
-  const [activeNav, setActiveNav] = useState('')
+  
     const [visible, SetVisible] = useState(false)
 
   function handleShowClick() {
@@ -37,13 +37,13 @@ export default props => {
     <Provider store={store}>
       <Router>
       <Navbar/>
-      <div>
-      <Button.Group className="sidebarbutton">
-          <Button disabled={visible} onClick={handleShowClick}>
+      <div className="sidebar">
+     
+          <Button className="sidebutton" disabled={visible} onClick={handleShowClick} color="black">
             <Icon name='bars'/>
           </Button>
          
-        </Button.Group>
+       
 
         <Sidebar.Pushable as={Segment}>
           <Sidebar

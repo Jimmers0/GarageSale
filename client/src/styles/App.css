@@ -1,2 +1,9 @@
 html {box-sizing:border-box;}
 *, *::before, *::after {box-sizing:inherit;}
+
+.sidebutton {
+    position: absolute;
+    left: 310px;
+    top: 0px;
+    
+}
