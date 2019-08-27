@@ -1,6 +1,7 @@
 import React from 'react'
-import 'normalize.css/normalize.css'
-import '../styles/App.css'
+import './App.css';
+import './index.css';
+
 
 
 class FormApp extends React.Component{
@@ -19,8 +20,7 @@ this.state= {
 render(){
 return(
 
-   <div id="container1">
-     <p>Create Account</p>
+   <div>
      <label htmlFor="name"> Name</label>
        <input value={this.state.Name} name = "Name" id= "Name" type= "text"/>
        
@@ -29,31 +29,24 @@ return(
 
        <label htmlFor="email"> Email</label>
        <input value= {this.state.Email} name = "EMAIL" id= "Email" type= "text"/>
-       
+
+      
+      
        <label htmlFor="Password"> Password</label>
        <input name = "Password" id= "Password" type= "text"/>
        
-       <label htmlFor="confirmpassword"> Confirm Password</label>
+       <label htmlFor="confirmpassword"> ConfirmPassword</label>
        <input name = "confirmpassword" id= "Cornfirmpassword" type= "text"/>
-       
-       <form onSubmit={this.handleSubmit}>
-        
-        {/* <input type="text" value={this.state.value} onChange={this.handleChange} /> */}
-        
-        <input type="submit" value="Submit" />
-        
-      </form>
-      
+
+       <label htmlFor="Website-Please enter a valid url">Website-please enter a valid url</label>
+       <input name = "Website-Please enter a valid url" id= "Website-please enter a valid url" type= "text"/>
+
    </div> 
 )
+
 
 
 }
 
 }
 export default FormApp
-
-
-{/* /* <label htmlFor="submit">Submit</label>
-        <input value={this.state.Submit} name = "Submit" id="Submit"type= "text"/>
-       */ }

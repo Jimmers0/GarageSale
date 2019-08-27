@@ -1,2 +1,38 @@
 html {box-sizing:border-box;}
 *, *::before, *::after {box-sizing:inherit;}
+
+
+
+#container1 {
+width: 800px;
+height: 550px;
+display: flex;
+flex-direction: column;
+margin:0 auto;
+color: black;
+font-style:italic;
+font-size: 2em;
+
+border: ridge darkolivegreen;
+border-width: 15px;
+background-color: rgb(173,208,198);
+
+
+}
+
+
+.form {
+padding:50px;
+}
+
+input{
+    margin: 4px;
+    display: flex;
+    background:rgb(255,253,255);
+    color: blue;
+    
+}
+
+label{
+margin-top: 10px;
+}
