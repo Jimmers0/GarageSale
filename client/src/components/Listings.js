@@ -28,7 +28,6 @@ export default props => {
 
 return (
     <div>
-        <Navbar/>
             <div className="salepostcontainer">
             {sales.map((sale, i) => (
                 <Link to={`/post/${sale.id}`}>

@@ -24,7 +24,7 @@ export default props => {
     const [name, setName] = useState('')
     const [results, setResults] = useState('')
     const [button, setButton] = useState(false)
-    const [isUploading, setIsUploading] = useState('')
+    const [isUploading, setIsUploading] = useState(false)
     const [progress, setProgress] = useState('')
     const [images, setImages] = useState([])
     const [fileName, setFileName] = useState('')
@@ -74,7 +74,6 @@ export default props => {
   text='Uploading your image...'
   >
         <div id="postWrap">
-            <Navbar/>
             <Form id="postForm" onSubmit={addPost}>
             <h1>Add a Garage Sale</h1>
             <p>{results}</p>

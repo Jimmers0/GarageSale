@@ -8,12 +8,14 @@ import Landing from './Landing'
 import Listings from './Listings'
 import Post from './Post'
 import Add from './Add'
+import Navbar from './Navbar'
 
 export default props => {
 
   return (
     <Provider store={store}>
       <Router>
+      <Navbar/>
         <Route exact path="/" component={Landing}/>
         <Route path="/search/:zip" component={Listings}/>
         <Route path="/post/:id" component={Post}/>
