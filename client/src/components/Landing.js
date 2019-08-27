@@ -13,7 +13,6 @@ function searchIt() {
     return (
         <div id="landingWrapper">
             <div id="nav">
-                <Navbar/>
             </div>
             <div id="search">
                 <Form id="searchForm" onSubmit={searchIt}>
