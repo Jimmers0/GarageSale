@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const conn = require('../../db/')
 const axios = require('axios')
+const shortid = require('shortid')
 
 let finalObj = []
 
@@ -38,10 +39,18 @@ router.get('/items', (req, res, next) => {
   })
 })
 router.post('/createPost', (req, res, next) => {
-  console.log(req.body.name)
-  const sql = `INSERT INTO posts (name, date, active, user_id, zip, city, state, address) VALUES (?,?,?,?,?,?,?,?)`
-  conn.query(sql, [req.body.name, req.body.date, true, req.body.user_id, req.body.zip, req.body.city, req.body.state, req.body.address], (err, result, fields) => {
-
+  var id = shortid.generate()
+  const sql = `INSERT INTO posts (name, date, active, user_id, zip, city, state, address, postID) VALUES (?,?,?,?,?,?,?,?,?)`
+  conn.query(sql, [req.body.name, req.body.date, true, req.body.user_id, req.body.zip, req.body.city, req.body.state, req.body.address, id], (err, result, fields) => {
+    req.body.images.forEach(item => {
+      const imageSQL = 'INSERT into items (price, picture, post_id) VALUES (?,?,?)'
+      conn.query(imageSQL, [item.url, item.price, id], (err, result, fields) => {
+        console.log(fields)
+        console.log(err)
+        console.log(result)
+      })
+    })
+    res.json({id: id})
   })
 })
 
