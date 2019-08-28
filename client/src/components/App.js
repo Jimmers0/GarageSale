@@ -12,7 +12,7 @@ import Navbar from './Navbar'
 import Inventory from './Inventory'
 import Garagesale from './Garagesale'
 import Settings from './Settings'
-// import Login from './Login'
+import Login from './Login'
 import Watchlist from './Watchlist'
 import Savedgaragesales from './Savedgaragesales'
 
@@ -127,7 +127,7 @@ export default props => {
               <Route path="/settings" component={Settings}/>
               <Route path="/savedgaragesales" component={Savedgaragesales}/>
               <Route path="/watchlist" component={Watchlist}/>
-              {/* <Route path="/login" component={Login}/> */}
+              <Route path="/login" component={Login}/>
 
                  
              </div>
