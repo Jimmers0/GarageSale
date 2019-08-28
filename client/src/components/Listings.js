@@ -22,15 +22,13 @@ export default props => {
             setResults('There are no garage sales in your area')
         }
     }
- 
-    console.log(sales)
 
 
 return (
     <div>
             <div className="salepostcontainer">
             {sales.map((sale, i) => (
-                <Link to={`/post/${sale.id}`}>
+                <Link to={`/post/${sale.postID}`}>
                 <div key={'sale' + i} className="salepost">
                     <div className="nameanddate">
                     <strong>{sale.name}</strong> {moment(sale.date).format("dddd MM/DD")} 

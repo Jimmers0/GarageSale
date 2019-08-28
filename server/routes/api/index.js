@@ -4,12 +4,6 @@ const axios = require('axios')
 const shortid = require('shortid')
 
 let finalObj = []
-
-router.get('/greeting', (req, res, next) => {
-  res.json({
-    "greeting": "Hello World!"
-  })
-})
 router.get('/getPosts/:zip', (req, res, next) => {
   conn.query('SELECT * FROM posts', (err, result, fields) => {
     if (err) throw err
@@ -29,12 +23,13 @@ router.get('/getPosts/:zip', (req, res, next) => {
   })
 })
 router.get('/post', (req, res, next) => {
-  conn.query(`SELECT * FROM posts where id = ${req.query.id}`, (err, result, fields) => {
+  conn.query(`SELECT * FROM posts WHERE postID = "${req.query.id}"`, (err, result, fields) => {
+    console.log(err)
     res.json(result)
   })
 })
 router.get('/items', (req, res, next) => {
-  conn.query(`SELECT * FROM items where post_id = ${req.query.id}`, (err, result, fields) => {
+  conn.query(`SELECT * FROM items where post_id = "${req.query.id}"`, (err, result, fields) => {
     res.json(result)
   })
 })
@@ -44,7 +39,7 @@ router.post('/createPost', (req, res, next) => {
   conn.query(sql, [req.body.name, req.body.date, true, req.body.user_id, req.body.zip, req.body.city, req.body.state, req.body.address, id], (err, result, fields) => {
     req.body.images.forEach(item => {
       const imageSQL = 'INSERT into items (price, picture, post_id) VALUES (?,?,?)'
-      conn.query(imageSQL, [item.url, item.price, id], (err, result, fields) => {
+      conn.query(imageSQL, [item.price, item.url, id], (err, result, fields) => {
         console.log(fields)
         console.log(err)
         console.log(result)
