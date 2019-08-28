@@ -2,8 +2,12 @@ html {box-sizing:border-box;}
 *, *::before, *::after {box-sizing:inherit;}
 
 .sidebutton {
-    position: absolute;
-    left: 310px;
-    top: 0px;
-    
+  top: 0px;
+  position: fixed;
+  z-index: 1;
+}
+
+.container {
+    margin-top: -14px;
+    height: 100vh;
 }

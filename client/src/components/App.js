@@ -43,9 +43,9 @@ export default props => {
   return (
     <Provider store={store}>
       <Router>
-      <Navbar/>
-      <div className="sidebar">
-     
+      
+      
+     <div className="container">
           <Button className="sidebutton" disabled={visible} onClick={handleShowClick} color="black">
             <Icon name='bars'/>
           </Button>
@@ -64,49 +64,57 @@ export default props => {
             visible={visible}
             width='thin'
           >
+            
+            <Link to="/">
+            <Menu.Item onClick={handleSidebarHide}>
+              <Icon name='search' />
+                Search
+            </Menu.Item>
+            </Link>
+
             <Link to="/login">
-            <Menu.Item as='a'>
+            <Menu.Item onClick={handleSidebarHide}>
               <Icon name='sign in' />
                 Login
             </Menu.Item>
             </Link>
 
             <Link to="/add">
-            <Menu.Item as='a'>
+            <Menu.Item onClick={handleSidebarHide}>
               <Icon name='add' />
               Create Garage Sale
             </Menu.Item>
             </Link>
 
             <Link to="/myinventory">
-            <Menu.Item as='a'>
+            <Menu.Item onClick={handleSidebarHide}>
               <Icon name='clipboard list' />
               Inventory
             </Menu.Item>
             </Link>
             
             <Link to="/mygaragesale">
-            <Menu.Item as='a'>
+            <Menu.Item onClick={handleSidebarHide}>
               <Icon name='dollar sign' />
               My Garage Sale
             </Menu.Item>
             </Link>
 
             <Link to="/savedgaragesales">
-            <Menu.Item as='a'>
+            <Menu.Item onClick={handleSidebarHide}>
               <Icon name='crosshairs' />
               Saved Garage Sales
             </Menu.Item>
             </Link>
 
             <Link to="/watchlist">
-            <Menu.Item as='a'>
+            <Menu.Item as='a' onClick={handleSidebarHide}>
               <Icon name='eye' />
               Watchlist
             </Menu.Item>
             </Link>
 
-            <Link to="/settings">
+            <Link to="/settings" onClick={handleSidebarHide}>
             <Menu.Item as='a'>
               <Icon name='setting' />
               Settings
@@ -134,7 +142,7 @@ export default props => {
             </Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
-      </div>
+        </div>
       </Router>
     </Provider>
   )
