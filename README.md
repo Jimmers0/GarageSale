@@ -1,5 +1,5 @@
         "Garage Hunter"!
- =>>>> This project in progress, <<<<=
+ =>>>> This project in progress <<<<=
 
 what about an app that can help you to find all the Garage sale going on in your area and more...? 
 
@@ -10,9 +10,9 @@ What about an App that helps you to create your own garage sale?
 Would you use an App dedicated to the Garage sale community?
 
 
-wait!!! more to come....
-
-This projects is being develo
+Wait!!! more to come....
+ 
+ this project is in progress
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
