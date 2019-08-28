@@ -63,7 +63,7 @@ export default props => {
           .child(filename)
           .getDownloadURL()
           .then(url => {
-              setImages([...images, {url: url, price: 0}])
+              setImages([...images, {url: url, price: 0, condition: "", name: ""}])
             })
     }
     console.log(images)
@@ -112,6 +112,10 @@ export default props => {
         return(
             <div id="singleImage">
             <img src={item.url}></img>
+            <label htmlFor={"image-" + i}>Name:</label>
+            <input id={"image-" + i} type="text" onChange={e => item.name = e.target.value}/>
+            <label htmlFor={"image-" + i}>Condition:</label>
+            <input id={"image-" + i} type="text" onChange={e => item.condition = e.target.value}/>
             <label htmlFor={"image-" + i}>Price:</label>
             <input id={"image-" + i} type="text" onChange={e => item.price = e.target.value}/>
             </div>
