@@ -1,0 +1,81 @@
+html {box-sizing:border-box;}
+*, *::before, *::after {box-sizing:inherit;}
+
+
+
+.container1 {
+width: 850px;
+height: 600px;
+display: flex;
+flex-direction: column;
+margin:auto;
+color: black;
+font-style:italic;
+font-size: 2em;
+border: ridge rgb(51, 47, 107);
+border-width: 15px;
+text-align: center;
+
+
+
+}
+
+.input {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+
+.inputbox{
+    width: 300px;
+    background:darkgray;
+    color:black;
+    border: 1px solid darkgrey;
+    padding: 10px;
+    text-align: center;
+    margin: auto;
+}
+    
+
+
+label{
+    
+margin-top: 20px;
+color:black;
+transition: all 0.3s ease;
+border-color: #2d8cf0;
+justify-content: center;
+margin-left: 10px;
+}
+
+
+h2{
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 125%;
+    
+   
+}
+
+.title {
+    width: 200px;
+    margin: auto;
+    text-align: center;
+    
+}
+
+#submitButton{
+    width:100px;
+    margin: auto;
+    text-align: center;
+    background: rdb(173,208,198);
+    border: 1px solid lightgray;
+}
+
+.submit {
+    width: 250px;
+    margin: auto;
+    text-align: center;
+}

@@ -25,7 +25,8 @@ export default props => {
 
 
 return (
-    <div>
+    <div className="t">
+    
             <div className="salepostcontainer">
             {sales.map((sale, i) => (
                 <Link to={`/post/${sale.postID}`}>
@@ -44,7 +45,8 @@ return (
 
                 </div>
                 </Link>
-            ))}
+            ))} 
+            
             </div> 
 
 

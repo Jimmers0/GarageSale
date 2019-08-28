@@ -1,11 +1,22 @@
 import React, { useState } from 'react'
-import {Menu} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
+import {
+  Button,
+  Header,
+  Icon,
+  Image,
+  Menu,
+  Segment,
+  Sidebar,
+} from 'semantic-ui-react'
 
 export default props => {
-    const [activeNav, setActiveNav] = useState('')
+
+  const [activeNav, setActiveNav] = useState('')
+
 
     return (
+     
         <Menu inverted>
           <Link to="/">
         <Menu.Item
@@ -24,5 +35,10 @@ export default props => {
           active={activeNav === "faq"}
         /></Link>
       </Menu>
+
+
+      
+      
+      
     )
 }
