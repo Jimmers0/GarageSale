@@ -11,6 +11,7 @@
     "moment": "^2.24.0",
     "normalize.css": "^8.0.1",
     "react": "^16.8.6",
+    "react-burger-menu": "^2.6.11",
     "react-calendar": "^2.19.1",
     "react-dom": "^16.8.6",
     "react-firebase-file-uploader": "^2.4.2",

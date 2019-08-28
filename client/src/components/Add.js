@@ -30,15 +30,16 @@ export default props => {
     const [fileName, setFileName] = useState('')
 
     function addPost() {
-        // createPost(name, city, state, zip, address, date)
-        // setResults('Your garage sale has been successfully added to our system!')
-        // setCity('')
-        // setState('')
-        // setZip('')
-        // setAddress('')
-        // setDate('')
-        // setName('')
-        // setButton(true)
+        createPost(name, city, state, zip, address, date, images)
+        setResults('Your garage sale has been successfully added to our system!')
+        setCity('')
+        setState('')
+        setZip('')
+        setAddress('')
+        setDate('')
+        setName('')
+        setButton(true)
+        setImages([])
         console.log(images)
     }
     function handleUploadStart(filename) {
@@ -74,7 +75,7 @@ export default props => {
   text='Uploading your image...'
   >
         <div id="postWrap">
-            <Form id="postForm" onSubmit={addPost}>
+            <Form id="postForm">
             <h1>Add a Garage Sale</h1>
             <p>{results}</p>
             <Autocomplete
@@ -117,7 +118,7 @@ export default props => {
         )
     })}
 </div>
-<Button type="submit" primary disabled={button}>Submit</Button>
+<Button primary disabled={button} onClick={addPost}>Submit</Button>
 </Form>
 
         </div>
