@@ -21,22 +21,29 @@ render(){
 return(
 
    <div id="container1">
+
+     <div className="title">
      <h2>Create Account</h2>
+
+     </div>
      
+     
+     <div className="input">
  <label htmlFor="name"> Name</label>
-  <input
+  <input className="inputbox"
   type="text"
   id="email"
   name="email"
   onChange={this.handleChange}
   placeholder="Jacob"
-  className=""
+  
   />
+    </div>
        
        
-       
+       <div className="input">
   <label htmlFor="username">Username</label>
-  <input
+  <input className="inputbox"
   type="text"
   id="username"
   name="username"
@@ -44,9 +51,11 @@ return(
   placeholder="jacob_jkl"
  
   />
+    </div>
 
+  <div className="input">
 <label htmlFor="email">Email</label>
-  <input
+  <input className="inputbox"
   type="text"
   id="email"
   name="email"
@@ -54,32 +63,42 @@ return(
   placeholder="jacob@gmail.com"
  
   />
+  </div>
        
+
+       <div className="input">
   <label htmlFor="Password"> Password</label>
-  <input
+  <input className="inputbox" 
   type="text"
   id="password"
   name="password"
   onChange={this.handleChange}
-  placeholder="******"
+  
 
   />
-       
+  </div>
+
+       <div className="input"> 
   <label htmlFor="confirmpassword"> Confirm Password</label>
-  <input
+  <input className="inputbox"
   type="text"
   id="confirmpassword"
   name="confirmpassword"
   onChange={this.handleChange}
-  placeholder="******"
+  
   
   />
+
+  </div>
        
-      <div id="Submit">
-      <form onSubmit={this.handleSubmit}>
+      
+      <div className="submit">
       <input id="submitButton" type="submit" value="Submit" />
-      </form>
+
       </div>
+     
+      
+    
       
    </div> 
 )

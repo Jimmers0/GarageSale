@@ -3,37 +3,39 @@ html {box-sizing:border-box;}
 
 
 
-#container1 {
+.container1 {
 width: 850px;
 height: 600px;
 display: flex;
 flex-direction: column;
-margin:0 auto;
+margin:auto;
 color: black;
 font-style:italic;
 font-size: 2em;
 border: ridge rgb(51, 47, 107);
 border-width: 15px;
+text-align: center;
 
 
 
 }
 
-
-.form {
-padding:50px;
-}
-
-input{
-    width: 750px;
-    display: block;
-    margin: 5px;
+.input {
+    text-align: center;
     display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+
+.inputbox{
+    width: 300px;
     background:darkgray;
     color:black;
     border: 1px solid darkgrey;
-  
-    justify-content: center;
+    padding: 10px;
+    text-align: center;
+    margin: auto;
 }
     
 
@@ -53,21 +55,27 @@ h2{
     text-align: center;
     font-family: sans-serif;
     font-size: 125%;
+    
    
 }
 
-#Submit{
-    
-    display: flex;
+.title {
+    width: 200px;
+    margin: auto;
     text-align: center;
-    background: rdb(173,208,198);
-    margin:40px;
+    
 }
 
 #submitButton{
     width:100px;
-    display:flex;
-    justify-content: center;
-    margin-left: 300px;
-    margin-bottom: 5px;
+    margin: auto;
+    text-align: center;
+    background: rdb(173,208,198);
+    border: 1px solid lightgray;
+}
+
+.submit {
+    width: 250px;
+    margin: auto;
+    text-align: center;
 }
