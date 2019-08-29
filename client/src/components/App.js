@@ -14,6 +14,7 @@ import Settings from './Settings'
 import Login from './Login'
 import Watchlist from './Watchlist'
 import Savedgaragesales from './Savedgaragesales'
+import Register from './Register'
 
 import {
   Button,
@@ -133,6 +134,7 @@ export default props => {
               <Route path="/savedgaragesale" component={Savedgaragesales}/>
               <Route path="/watchlist" component={Watchlist}/>
               <Route path="/login" component={Login}/>
+              <Route path="/register" component={Register}/>
 
                  
              </div>
