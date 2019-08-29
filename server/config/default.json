@@ -4,5 +4,7 @@
     "user": "root",
     "password": "",
     "database": "garagesale"
-  }
+  },
+  "secret": "!@#$IEROME!@#$",
+  "salt": "!@#$GARAGE!@#$"
 }
