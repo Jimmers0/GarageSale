@@ -2,6 +2,9 @@ const router = require('express').Router()
 const conn = require('../../db/')
 const axios = require('axios')
 const shortid = require('shortid')
+const sha512 = require('js-sha512')
+const jwt = require('jsonwebtoken')
+const config = require('config')
 
 let finalObj = []
 router.get('/getPosts/:zip', (req, res, next) => {
@@ -24,7 +27,6 @@ router.get('/getPosts/:zip', (req, res, next) => {
 })
 router.get('/post', (req, res, next) => {
   conn.query(`SELECT * FROM posts WHERE postID = "${req.query.id}"`, (err, result, fields) => {
-    console.log(err)
     res.json(result)
   })
 })
@@ -33,20 +35,42 @@ router.get('/items', (req, res, next) => {
     res.json(result)
   })
 })
-router.post('/createPost', (req, res, next) => {
-  var id = shortid.generate()
-  const sql = `INSERT INTO posts (name, date, active, user_id, zip, city, state, address, postID) VALUES (?,?,?,?,?,?,?,?,?)`
-  conn.query(sql, [req.body.name, req.body.date, true, req.body.user_id, req.body.zip, req.body.city, req.body.state, req.body.address, id], (err, result, fields) => {
-    req.body.images.forEach(item => {
-      const imageSQL = 'INSERT into items (price, picture, post_id) VALUES (?,?,?)'
-      conn.query(imageSQL, [item.price, item.url, id], (err, result, fields) => {
-        console.log(fields)
-        console.log(err)
-        console.log(result)
+
+router.post('/login', (req, res, next) => {
+  const username = req.body.username
+  const password = sha512(req.body.password + config.get('salt'))
+  const sql =  `SELECT * FROM users WHERE username = ? AND password = ? `
+  conn.query(sql, [username, password], (err, results, fields) => {
+    if (results.length > 0){
+      const token = jwt.sign({username}, config.get('secret'))
+      res.json({
+        message: "User signed in",
+        token: token
       })
-    })
-    res.json({id: id})
+    } else {
+      res.status(401).json({
+        message: "username or password is incorrect"
+      })
+    }
   })
-})
+ })
+
+ router.post('/register', (req, res, next) => {
+  const username = req.body.username
+  const password = sha512(req.body.password + config.get('salt'))
+ const sql = `INSERT into users (username, password) VALUES (?, ?)`
+ conn.query(sql, [username, password], (err, results, fields) => {
+   if (err) {
+    //  console.log(err)
+     res.json({
+       message: "User already exists"
+     })
+   } else {
+     res.json({
+       message: "User created"
+     })
+   }
+ })
+ })
 
 module.exports = router
