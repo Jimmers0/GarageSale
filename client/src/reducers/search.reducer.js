@@ -1,7 +1,8 @@
 const initialState = {
   listings : [],
   post: [],
-  items: []
+  items: [],
+  savedsales: []
 }
 
 export default function(state = initialState, action) {
@@ -12,6 +13,8 @@ export default function(state = initialState, action) {
       return {...state, post: action.payload}
     case "GET_ITEMS":
       return {...state, items: action.payload}
+    case 'ADD':
+      return {...state, savedsales:[ action.payload, ...state.savedsales]}
     default:
       return state
   }

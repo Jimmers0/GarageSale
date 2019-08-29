@@ -8,7 +8,6 @@ import Landing from './Landing'
 import Listings from './Listings'
 import Post from './Post'
 import Add from './Add'
-import Navbar from './Navbar'
 import Inventory from './Inventory'
 import Garagesale from './Garagesale'
 import Settings from './Settings'
@@ -18,9 +17,7 @@ import Savedgaragesales from './Savedgaragesales'
 
 import {
   Button,
-  Header,
   Icon,
-  Image,
   Menu,
   Segment,
   Sidebar,
@@ -100,7 +97,7 @@ export default props => {
             </Menu.Item>
             </Link>
 
-            <Link to="/savedgaragesales">
+            <Link to="/savedgaragesale">
             <Menu.Item onClick={handleSidebarHide}>
               <Icon name='crosshairs' />
               Saved Garage Sales
@@ -133,7 +130,7 @@ export default props => {
               <Route path="/myinventory" component={Inventory}/>
               <Route path="/mygaragesale" component={Garagesale}/>
               <Route path="/settings" component={Settings}/>
-              <Route path="/savedgaragesales" component={Savedgaragesales}/>
+              <Route path="/savedgaragesale" component={Savedgaragesales}/>
               <Route path="/watchlist" component={Watchlist}/>
               <Route path="/login" component={Login}/>
 

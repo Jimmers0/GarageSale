@@ -3,11 +3,13 @@ html {box-sizing:border-box;}
 
 .sidebutton {
   top: 0px;
-  position: fixed;
+  position: sticky;
   z-index: 1;
 }
 
 .container {
     margin-top: -14px;
     height: 100vh;
+    position: relative;
+    top: -36px;
 }
