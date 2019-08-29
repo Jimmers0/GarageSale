@@ -20,6 +20,15 @@ export function getPosts(id) {
     })
   }
 
+  export function saveSale(sale){
+    console.log('sale:', sale)
+    store.dispatch ({
+      type: 'ADD',
+      payload: sale
+               
+    })
+  }
+
 
 export function sendPost(Id){
     axios.post ('/api/post/',{  }).then(resp => {

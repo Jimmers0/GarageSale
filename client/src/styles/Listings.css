@@ -30,3 +30,10 @@ a {
     width: 100%;
 }
 
+.error {
+    width: 200px;
+    margin: auto;
+    text-align: center;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+}

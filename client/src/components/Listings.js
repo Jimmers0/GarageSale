@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import '../styles/Listings.css'
-import Navbar from './Navbar'
 import { useSelector } from 'react-redux'
 import { grabPosts } from '../actions/landing.actions'
+import { saveSale } from '../actions/posting.actions'
 import moment from 'moment'
 import {Link} from 'react-router-dom'
+import { Button, Icon } from 'semantic-ui-react'
 
 
 export default props => {
@@ -23,12 +24,15 @@ export default props => {
         }
     }
 
+    console.log(sales)
+
 
 return (
     <div className="t">
     
             <div className="salepostcontainer">
             {sales.map((sale, i) => (
+                <div>
                 <Link to={`/post/${sale.postID}`}>
                 <div key={'sale' + i} className="salepost">
                     <div className="nameanddate">
@@ -45,11 +49,20 @@ return (
 
                 </div>
                 </Link>
+                Save Sale {' '}
+                
+                <Button icon type="submit" size="small" color="black" onClick={e => saveSale(sale)}>
+                <Icon name='crosshairs' />
+                </Button>
+
+               
+            
+            </div>
             ))} 
             
             </div> 
 
-
+           
 
     </div>
     )

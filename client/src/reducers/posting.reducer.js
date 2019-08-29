@@ -1,7 +1,8 @@
 
 const initialState = {
     post: [],
-    items: []
+    items: [],
+    
   }
   
   export default function(state = initialState, action) {
