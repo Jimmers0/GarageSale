@@ -3,98 +3,51 @@ import 'normalize.css/normalize.css'
 import '../styles/Login.css'
 
 
-class FormApp extends React.Component{
-constructor (args){
-super (args)
-this.state= {
- Name: '',
- username: '',
- email: '',
+export default props => {
 
+  function sendRegister() {
+    props.history.push('/register')
+  }
 
-
-}
-
-}
-    
-render(){
 return(
 
    <div id="container1">
 
      <div className="title">
-     <h2>Create Account</h2>
+     <h2>Login</h2>
 
      </div>
      
      
      <div className="input">
- <label htmlFor="name"> Name</label>
+ <label htmlFor="name"> Email:</label>
   <input className="inputbox"
   type="text"
   id="email"
   name="email"
-  onChange={this.handleChange}
-  placeholder="Jacob"
+  // onChange={this.handleChange}
+  placeholder="john@doe.com"
   
   />
     </div>
        
        
        <div className="input">
-  <label htmlFor="username">Username</label>
+  <label htmlFor="username">Password</label>
   <input className="inputbox"
-  type="text"
-  id="username"
-  name="username"
-  onChange={this.handleChange}
-  placeholder="jacob_jkl"
- 
-  />
-    </div>
-
-  <div className="input">
-<label htmlFor="email">Email</label>
-  <input className="inputbox"
-  type="text"
-  id="email"
-  name="email"
-  onChange={this.handleChange}
-  placeholder="jacob@gmail.com"
- 
-  />
-  </div>
-       
-
-       <div className="input">
-  <label htmlFor="Password"> Password</label>
-  <input className="inputbox" 
   type="text"
   id="password"
   name="password"
-  onChange={this.handleChange}
-  
-
+  // onChange={this.handleChange}
+  placeholder="Password"
+ 
   />
-  </div>
-
-       <div className="input"> 
-  <label htmlFor="confirmpassword"> Confirm Password</label>
-  <input className="inputbox"
-  type="text"
-  id="confirmpassword"
-  name="confirmpassword"
-  onChange={this.handleChange}
-  
-  
-  />
-
-  </div>
+    </div>
        
       
       <div className="submit">
-      <input id="submitButton" type="submit" value="Submit" />
-
+      <button>Sign In</button>
+      <button onClick={sendRegister}>Register</button>
       </div>
      
       
@@ -105,9 +58,6 @@ return(
 
 
 }
-
-}
-export default FormApp
 
 
 
