@@ -1,32 +1,51 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import 'normalize.css/normalize.css'
 import '../styles/Login.css'
+import { login } from '../actions/login.actions'
+import { useSelector } from 'react-redux'
+import { checkLogin } from '../actions/login.actions'
 
 
 export default props => {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
+  const loginResponse = useSelector(appState => appState.loginResponse)
+  const loginValid = useSelector(appState => appState.authRedirect)
+
+  useEffect(() => {
+    checkLogin()
+}, [])
 
   function sendRegister() {
     props.history.push('/register')
   }
+  function signIn() {
+    login(username, password)
+    setUsername('')
+    setPassword('')
+  }
+  console.log(loginValid)
 
-return(
-
+return loginValid ? <div className="fuckOff"><p>You are already logged in!</p></div> :
    <div id="container1">
 
      <div className="title">
      <h2>Login</h2>
 
      </div>
-     
-     
+     <div className="loginResponse">
+     <p>{loginResponse}</p>
+     </div>
      <div className="input">
- <label htmlFor="name"> Email:</label>
+ <label htmlFor="name"> Username:</label>
   <input className="inputbox"
   type="text"
-  id="email"
-  name="email"
-  // onChange={this.handleChange}
-  placeholder="john@doe.com"
+  id="username"
+  name="username"
+  value={username}
+  onChange={e => setUsername(e.target.value)}
+  placeholder="UserName"
   
   />
     </div>
@@ -38,7 +57,8 @@ return(
   type="text"
   id="password"
   name="password"
-  // onChange={this.handleChange}
+  value={password}
+  onChange={e => setPassword(e.target.value)}
   placeholder="Password"
  
   />
@@ -46,7 +66,7 @@ return(
        
       
       <div className="submit">
-      <button>Sign In</button>
+      <button onClick={signIn}>Sign In</button>
       <button onClick={sendRegister}>Register</button>
       </div>
      
@@ -54,7 +74,6 @@ return(
     
       
    </div> 
-)
 
 
 }

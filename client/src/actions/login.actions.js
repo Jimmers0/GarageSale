@@ -5,6 +5,19 @@ if(localStorage.getItem('token')){
     setInterceptors(localStorage.getItem('token'))
 }
 
+export function checkLogin() {
+    if (localStorage.getItem('token')) {
+        axios.get('/api/checkValids').then(resp => {
+            if (resp.data.validated) {
+                store.dispatch({
+                    type: "INVALID_REDIRECT",
+                    payload: resp.data.validated
+                })
+            }
+        })
+    }
+}
+
 function setInterceptors(){
     axios.interceptors.request.use(
         reqConfig => {
@@ -12,7 +25,7 @@ function setInterceptors(){
             return reqConfig
         },
         err => Promise.reject(err) 
-    )
+    );
 }
 export function login(username, password){
     console.log(username, password)
@@ -23,7 +36,11 @@ export function login(username, password){
         const token = resp.data.token
         localStorage.setItem('token', token)
         setInterceptors(token)
-        console.log(resp.data)
+    }).catch(error => {
+        store.dispatch({
+            type: "LOGIN_STATUS",
+            payload: error.response.data.message
+        })
     })
 }
 export function register(username, password, first_name, last_name){
@@ -34,6 +51,5 @@ export function register(username, password, first_name, last_name){
       first_name: first_name, 
       last_name: last_name
     }).then(resp => {
-      console.log(resp.data)
     })
 }

@@ -2,7 +2,9 @@ const initialState = {
   listings : [],
   post: [],
   items: [],
-  savedsales: []
+  savedsales: [],
+  authRedirect: false,
+  loginResponse: ''
 }
 
 export default function(state = initialState, action) {
@@ -15,6 +17,10 @@ export default function(state = initialState, action) {
       return {...state, items: action.payload}
     case 'ADD':
       return {...state, savedsales:[ action.payload, ...state.savedsales]}
+    case "INVALID_REDIRECT":
+      return {...state, authRedirect: action.payload}
+    case "LOGIN_STATUS":
+      return {...state, loginResponse: action.payload}
     default:
       return state
   }
