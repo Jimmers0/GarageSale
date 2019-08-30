@@ -25,7 +25,6 @@ export default props => {
     setUsername('')
     setPassword('')
   }
-  console.log(loginValid)
 
 return loginValid ? <div className="fuckOff"><p>You are already logged in!</p></div> :
    <div id="container1">
