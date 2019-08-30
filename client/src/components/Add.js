@@ -37,6 +37,10 @@ export default props => {
     useEffect(() => {
         checkLogin()
     }, [])
+
+    if (!loginValid) {
+        props.history.push('/login')
+    }
     function addPost() {
         createPost(name, city, state, zip, address, date, images)
         setResults('Your garage sale has been successfully added to our system!')
