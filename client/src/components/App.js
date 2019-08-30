@@ -124,7 +124,7 @@ export default props => {
           <Sidebar.Pusher dimmed={visible}>
             <Segment basic>
              <div className="component">
-             <Route exact path="/" component={Landing}/>
+              <Route exact path="/" component={Landing}/>
               <Route path="/search/:zip" component={Listings}/>
               <Route path="/post/:id" component={Post}/>
               <Route path="/add" component={Add}/>
@@ -135,7 +135,6 @@ export default props => {
               <Route path="/watchlist" component={Watchlist}/>
               <Route path="/login" component={Login}/>
               <Route path="/register" component={Register}/>
-
                  
              </div>
             </Segment>

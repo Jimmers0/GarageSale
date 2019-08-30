@@ -72,5 +72,20 @@ router.post('/login', (req, res, next) => {
    }
  })
  })
+ router.get('/checkValids', (req, res, next) => {
+   if (req.header('Authorization').length > 1) {
+  jwt.verify(req.header('Authorization').split(" ")[1], config.get("secret"), function(err, decoded) {
+    if (err) {
+      console.log(req.header('Authorization'))
+      console.log(err)
+      res.json({...err, validated: false})
+    } else {
+      console.log("Validated")
+      res.json({...decoded, validated: true})
+    }
+  });
+}
+})
+
 
 module.exports = router

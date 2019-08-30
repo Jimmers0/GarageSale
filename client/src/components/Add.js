@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Autocomplete from 'react-google-autocomplete'
 import {Button, Form} from 'semantic-ui-react'
 import '../styles/post.css'
@@ -7,6 +7,8 @@ import {createPost} from '../actions/posting.actions'
 import firebase from "firebase"
 import FileUploader from "react-firebase-file-uploader"
 import LoadingOverlay from 'react-loading-overlay'
+import { checkLogin } from '../actions/login.actions'
+import { useSelector } from 'react-redux'
 const config = {
     apiKey: "AIzaSyAJDhsNvb6SRPqpfCzu6MEY5vvG994KXBI",
     authDomain: "garagesale-1566844332293.firebaseapp.com",
@@ -29,6 +31,12 @@ export default props => {
     const [images, setImages] = useState([])
     const [fileName, setFileName] = useState('')
 
+    const loginValid = useSelector(appState => appState.authRedirect)
+
+
+    useEffect(() => {
+        checkLogin()
+    }, [])
     function addPost() {
         createPost(name, city, state, zip, address, date, images)
         setResults('Your garage sale has been successfully added to our system!')
@@ -66,9 +74,8 @@ export default props => {
               setImages([...images, {url: url, price: 0, condition: "", name: ""}])
             })
     }
-    console.log(images)
 
-    return (
+    return loginValid ?
         <LoadingOverlay
   active={isUploading}
   spinner
@@ -127,5 +134,5 @@ export default props => {
 
         </div>
         </LoadingOverlay>
-    )
+    : <div className="fuckOff"><p>Please login to add a Garage Sale</p></div>
 }
