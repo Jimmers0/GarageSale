@@ -26,6 +26,7 @@ router.get('/getPosts/:zip', (req, res, next) => {
   })
 })
 router.get('/post', (req, res, next) => {
+  // TODO: should this be postID or id??
   conn.query(`SELECT * FROM posts WHERE postID = "${req.query.id}"`, (err, result, fields) => {
     res.json(result)
   })
@@ -33,6 +34,14 @@ router.get('/post', (req, res, next) => {
 router.get('/items', (req, res, next) => {
   conn.query(`SELECT * FROM items where post_id = "${req.query.id}"`, (err, result, fields) => {
     res.json(result)
+  })
+})
+
+router.get('/inventory', (req, res, next) => {
+  const userID = req.body.userID;
+
+  conn.query(`SELECT * FROM inventory WHERE user_id = "${userID}"`, (err, result, fields) => {
+    res.json(result);
   })
 })
 
