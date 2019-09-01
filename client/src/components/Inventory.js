@@ -1,6 +1,9 @@
 import React from 'react'
 
-export default props => {
 
-    return (<h1>Hello</h1>)
+export default props => {
+    
+    // pull inventory from redux
+    // map each inventory into a div container
+    return (<div><span>Inventory</span></div>)
 }
