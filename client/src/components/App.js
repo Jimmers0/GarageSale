@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import 'normalize.css/normalize.css'
 import '../styles/App.css'
 import { Provider } from 'react-redux'
@@ -37,6 +37,9 @@ export default props => {
   function handleSidebarHide() {
     SetVisible(false)
   }
+  useEffect(() => {
+    handleSidebarHide()
+  }, [props.route])
 
   return (
     <Provider store={store}>
@@ -63,57 +66,57 @@ export default props => {
             width='thin'
           >
             
-            <Link to="/">
-            <Menu.Item onClick={handleSidebarHide}>
+            <Link to="/" onClick={handleSidebarHide}>
+            <Menu.Item>
               <Icon name='search' />
                 Search
             </Menu.Item>
             </Link>
 
-            <Link to="/login">
-            <Menu.Item onClick={handleSidebarHide}>
+            <Link to="/login" onClick={handleSidebarHide}>
+            <Menu.Item>
               <Icon name='sign in' />
                 Login
             </Menu.Item>
             </Link>
 
-            <Link to="/add">
-            <Menu.Item onClick={handleSidebarHide}>
+            <Link to="/add" onClick={handleSidebarHide}>
+            <Menu.Item>
               <Icon name='add' />
               Create Garage Sale
             </Menu.Item>
             </Link>
 
-            <Link to="/myinventory">
-            <Menu.Item onClick={handleSidebarHide}>
+            <Link to="/myinventory" onClick={handleSidebarHide}>
+            <Menu.Item>
               <Icon name='clipboard list' />
               Inventory
             </Menu.Item>
             </Link>
             
-            <Link to="/mygaragesale">
-            <Menu.Item onClick={handleSidebarHide}>
+            <Link to="/mygaragesale" onClick={handleSidebarHide}>
+            <Menu.Item>
               <Icon name='dollar sign' />
               My Garage Sale
             </Menu.Item>
             </Link>
 
-            <Link to="/savedgaragesale">
-            <Menu.Item onClick={handleSidebarHide}>
+            <Link to="/savedgaragesale" onClick={handleSidebarHide}>
+            <Menu.Item>
               <Icon name='crosshairs' />
               Saved Garage Sales
             </Menu.Item>
             </Link>
 
-            <Link to="/watchlist">
-            <Menu.Item as='a' onClick={handleSidebarHide}>
+            <Link to="/watchlist" onClick={handleSidebarHide}>
+            <Menu.Item>
               <Icon name='eye' />
               Watchlist
             </Menu.Item>
             </Link>
 
             <Link to="/settings" onClick={handleSidebarHide}>
-            <Menu.Item as='a'>
+            <Menu.Item>
               <Icon name='setting' />
               Settings
             </Menu.Item>
@@ -124,7 +127,7 @@ export default props => {
           <Sidebar.Pusher dimmed={visible}>
             <Segment basic>
              <div className="component">
-             <Route exact path="/" component={Landing}/>
+              <Route exact path="/" component={Landing}/>
               <Route path="/search/:zip" component={Listings}/>
               <Route path="/post/:id" component={Post}/>
               <Route path="/add" component={Add}/>
@@ -135,7 +138,6 @@ export default props => {
               <Route path="/watchlist" component={Watchlist}/>
               <Route path="/login" component={Login}/>
               <Route path="/register" component={Register}/>
-
                  
              </div>
             </Segment>

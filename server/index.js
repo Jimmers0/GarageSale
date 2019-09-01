@@ -17,7 +17,8 @@ app.use(function(err, req, res, next){
   res.locals.error = req.app.get('env') === 'development' ? err : {};
   res.status(err.status || 500);
   res.json({
-    err: err
+    err: err,
+    redirect: true
   })
  })
 
