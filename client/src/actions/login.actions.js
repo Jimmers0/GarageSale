@@ -3,18 +3,10 @@ import axios from 'axios'
 
 
 if(localStorage.getItem('token')){
-    console.log('true')
     setInterceptors(localStorage.getItem('token'))
     store.dispatch({
         type: "LOGGED",
-        payload: 'true'
-        
-    })
-} else {
-    console.log('true')
-    store.dispatch({
-        type: "LOGGED",
-        payload: 'false'
+        payload: true
     })
 }
 
@@ -41,7 +33,6 @@ function setInterceptors(){
     );
 }
 export function login(username, password){
-    console.log(username, password)
     axios.post('/api/login', {
       username: username,
       password: password}
@@ -49,6 +40,10 @@ export function login(username, password){
         const token = resp.data.token
         localStorage.setItem('token', token)
         setInterceptors(token)
+        store.dispatch({
+            type: "LOGGED",
+            payload: true
+        })
     }).catch(error => {
         store.dispatch({
             type: "LOGIN_STATUS",
@@ -69,5 +64,9 @@ export function register(username, password, first_name, last_name){
 
 export function logout(){
     localStorage.removeItem('token')
+    store.dispatch({
+        type: "LOGGED",
+        payload: false
+    })
 }
 

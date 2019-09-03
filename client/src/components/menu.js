@@ -8,7 +8,7 @@ import { logout } from '../actions/login.actions'
 export default props => {
 
     const login = useSelector(appState => appState.logged)
-    console.log('menu', login)
+    console.log(login)
 
     return (
 
@@ -80,7 +80,7 @@ export default props => {
             </div>
         </a>
         <div>
-            {login === 'false' ? <a id="logout" className="menu-item" style={{outline: 'none' }} href="/login">
+            {!login ? <a id="logout" className="menu-item" style={{outline: 'none' }} href="/login">
             <div className="item"> 
                 <div className="icon">
                     <MaterialIcon icon="account_box" size={20} color={colorPalette.grey._50} /> 
