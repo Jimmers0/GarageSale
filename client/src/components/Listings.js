@@ -29,7 +29,7 @@ export default props => {
         }
     }
 
-    console.log(coords.lat)
+   
 
 
     return (
