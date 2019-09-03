@@ -12,7 +12,7 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case "LOGGED":
-      return {logged: action.payload}
+      return {...state, logged: action.payload}
     case 'LISTINGS':
       return {...state, listings: action.payload}
     case 'GET_POSTS':
