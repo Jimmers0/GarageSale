@@ -4,7 +4,7 @@ const initialState = {
   items: [],
   savedsales: [],
   authRedirect: false,
-  logged: '',
+  logged: false,
   loginResponse: '',
   searchCords: {}
 }
