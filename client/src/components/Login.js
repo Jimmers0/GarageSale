@@ -24,6 +24,7 @@ export default props => {
     login(username, password)
     setUsername('')
     setPassword('')
+    props.history.push('/')
   }
 
 return loginValid ? <div className="fuckOff"><p>You are already logged in!</p></div> :
