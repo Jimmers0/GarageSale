@@ -85,8 +85,6 @@ router.post('/login', (req, res, next) => {
    if (req.header('Authorization').length > 1) {
   jwt.verify(req.header('Authorization').split(" ")[1], config.get("secret"), function(err, decoded) {
     if (err) {
-      console.log(req.header('Authorization'))
-      console.log(err)
       res.json({...err, validated: false})
     } else {
       console.log("Validated")
@@ -94,6 +92,18 @@ router.post('/login', (req, res, next) => {
     }
   });
 }
+})
+router.post('/createPost', (req, res, next) => {
+  var id = shortid.generate()
+  const sql = `INSERT INTO posts (name, date, active, user_id, zip, city, state, address, postID) VALUES (?,?,?,?,?,?,?,?,?)`
+  conn.query(sql, [req.body.name, req.body.date, true, req.body.user_id, req.body.zip, req.body.city, req.body.state, req.body.address, id], (err, result, fields) => {
+    req.body.images.forEach(item => {
+      const imageSQL = 'INSERT into items (price, picture, post_id) VALUES (?,?,?)'
+      conn.query(imageSQL, [item.price, item.url, id], (err, result, fields) => {
+      })
+    })
+    res.json({id: id})
+  })
 })
 
 
