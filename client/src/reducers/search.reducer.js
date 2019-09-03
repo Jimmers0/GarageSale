@@ -4,11 +4,14 @@ const initialState = {
   items: [],
   savedsales: [],
   authRedirect: false,
-  loginResponse: ''
+  logged: ''
+
 }
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    case "LOGGED":
+      return {logged: action.payload}
     case 'LISTINGS':
       return {...state, listings: action.payload}
     case 'GET_POSTS':

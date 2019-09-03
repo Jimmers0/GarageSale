@@ -1,8 +1,21 @@
 import store from '../store'
 import axios from 'axios'
 
+
 if(localStorage.getItem('token')){
+    console.log('true')
     setInterceptors(localStorage.getItem('token'))
+    store.dispatch({
+        type: "LOGGED",
+        payload: 'true'
+        
+    })
+} else {
+    console.log('true')
+    store.dispatch({
+        type: "LOGGED",
+        payload: 'false'
+    })
 }
 
 export function checkLogin() {
@@ -53,3 +66,8 @@ export function register(username, password, first_name, last_name){
     }).then(resp => {
     })
 }
+
+export function logout(){
+    localStorage.removeItem('token')
+}
+
