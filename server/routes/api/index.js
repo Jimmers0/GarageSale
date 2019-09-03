@@ -25,6 +25,16 @@ router.get('/getPosts/:zip', (req, res, next) => {
     })
   })
 })
+router.get('/getCords', (req, res, next) => {
+  axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${req.query.zip}&key=AIzaSyC8cLGX-N6A6ramMmRMgKK07-TR-rlh5sA`).then(resp => {
+    const lat = resp.data.results[0].geometry.location.lat
+    const lng = resp.data.results[0].geometry.location.lng
+    res.json({
+      lat: lat,
+      lng: lng
+    })
+  })
+})
 router.get('/post', (req, res, next) => {
   conn.query(`SELECT * FROM posts WHERE postID = "${req.query.id}"`, (err, result, fields) => {
     res.json(result)
@@ -85,15 +95,20 @@ router.post('/login', (req, res, next) => {
 }
 })
 router.post('/createPost', (req, res, next) => {
-  var id = shortid.generate()
-  const sql = `INSERT INTO posts (name, date, active, user_id, zip, city, state, address, postID) VALUES (?,?,?,?,?,?,?,?,?)`
-  conn.query(sql, [req.body.name, req.body.date, true, req.body.user_id, req.body.zip, req.body.city, req.body.state, req.body.address, id], (err, result, fields) => {
-    req.body.images.forEach(item => {
-      const imageSQL = 'INSERT into items (price, picture, post_id) VALUES (?,?,?)'
-      conn.query(imageSQL, [item.price, item.url, id], (err, result, fields) => {
+  let responsee = []
+  axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${req.body.address}&key=AIzaSyC8cLGX-N6A6ramMmRMgKK07-TR-rlh5sA`).then(resp => {
+    const lat = resp.data.results[0].geometry.location.lat
+    const lng = resp.data.results[0].geometry.location.lng
+    var id = shortid.generate()
+    const sql = `INSERT INTO posts (name, date, active, user_id, zip, city, state, address, postID, lat, lng) VALUES (?,?,?,?,?,?,?,?,?,?,?)`
+    conn.query(sql, [req.body.name, req.body.date, true, req.body.user_id, req.body.zip, req.body.city, req.body.state, req.body.address, id, lat, lng], (err, result, fields) => {
+      req.body.images.forEach(item => {
+        const imageSQL = 'INSERT into items (price, picture, post_id) VALUES (?,?,?)'
+        conn.query(imageSQL, [item.price, item.url, id], (err, result, fields) => {
+        })
       })
+      res.json({id: id})
     })
-    res.json({id: id})
   })
 })
 

@@ -4,7 +4,8 @@ const initialState = {
   items: [],
   savedsales: [],
   authRedirect: false,
-  loginResponse: ''
+  loginResponse: '',
+  searchCords: {}
 }
 
 export default function(state = initialState, action) {
@@ -21,6 +22,8 @@ export default function(state = initialState, action) {
       return {...state, authRedirect: action.payload}
     case "LOGIN_STATUS":
       return {...state, loginResponse: action.payload}
+    case "GET_CORDS":
+      return {...state, searchCords: action.payload}
     default:
       return state
   }

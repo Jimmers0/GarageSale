@@ -11,4 +11,11 @@ export function grabPosts(zip) {
         
     })
 }
-
+export function getCords(zip) {
+    axios.get('/api/getCords?zip=' + zip).then(resp => {
+        store.dispatch({
+            type: "GET_CORDS",
+            payload: resp.data
+        })
+    })
+}
