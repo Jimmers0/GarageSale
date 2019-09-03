@@ -2,9 +2,12 @@ import React, {useState} from 'react'
 import {Form, Button} from 'semantic-ui-react'
 import '../styles/landing.css'
 import Navbar from './Navbar'
+import {useSelector} from 'react-redux'
 
 export default props => {
 const [zip, setZip] = useState('')
+
+
 
 function searchIt() {
     props.history.push('/search/' + zip)

@@ -10,140 +10,33 @@ import Post from './Post'
 import Add from './Add'
 import Inventory from './Inventory'
 import Garagesale from './Garagesale'
-import Settings from './Settings'
+import Myprofile from './Myprofile'
 import Login from './Login'
 import Watchlist from './Watchlist'
 import Savedgaragesales from './Savedgaragesales'
 import Register from './Register'
-
-import {
-  Button,
-  Icon,
-  Menu,
-  Segment,
-  Sidebar,
-} from 'semantic-ui-react'
+import Burgermenu from './menu'
 
 
 export default props => {
 
-  
-    const [visible, SetVisible] = useState(false)
-
-  function handleShowClick() {
-    SetVisible(true)
-  }
-
-  function handleSidebarHide() {
-    SetVisible(false)
-  }
-  useEffect(() => {
-    handleSidebarHide()
-  }, [props.route])
-
   return (
     <Provider store={store}>
       <Router>
-      
-      
-     <div className="container">
-          <Button className="sidebutton" disabled={visible} onClick={handleShowClick} color="black">
-            <Icon name='bars'/>
-          </Button>
-         
-       
-
-        <Sidebar.Pushable as={Segment}>
-          <Sidebar
-            as={Menu}
-            direction='right'
-            animation='overlay'
-            icon='labeled'
-            inverted
-            onHide={handleSidebarHide}
-            vertical
-            visible={visible}
-            width='thin'
-          >
-            
-            <Link to="/" onClick={handleSidebarHide}>
-            <Menu.Item>
-              <Icon name='search' />
-                Search
-            </Menu.Item>
-            </Link>
-
-            <Link to="/login" onClick={handleSidebarHide}>
-            <Menu.Item>
-              <Icon name='sign in' />
-                Login
-            </Menu.Item>
-            </Link>
-
-            <Link to="/add" onClick={handleSidebarHide}>
-            <Menu.Item>
-              <Icon name='add' />
-              Create Garage Sale
-            </Menu.Item>
-            </Link>
-
-            <Link to="/myinventory" onClick={handleSidebarHide}>
-            <Menu.Item>
-              <Icon name='clipboard list' />
-              Inventory
-            </Menu.Item>
-            </Link>
-            
-            <Link to="/mygaragesale" onClick={handleSidebarHide}>
-            <Menu.Item>
-              <Icon name='dollar sign' />
-              My Garage Sale
-            </Menu.Item>
-            </Link>
-
-            <Link to="/savedgaragesale" onClick={handleSidebarHide}>
-            <Menu.Item>
-              <Icon name='crosshairs' />
-              Saved Garage Sales
-            </Menu.Item>
-            </Link>
-
-            <Link to="/watchlist" onClick={handleSidebarHide}>
-            <Menu.Item>
-              <Icon name='eye' />
-              Watchlist
-            </Menu.Item>
-            </Link>
-
-            <Link to="/settings" onClick={handleSidebarHide}>
-            <Menu.Item>
-              <Icon name='setting' />
-              Settings
-            </Menu.Item>
-            </Link>
-
-          </Sidebar>
-
-          <Sidebar.Pusher dimmed={visible}>
-            <Segment basic>
-             <div className="component">
-              <Route exact path="/" component={Landing}/>
-              <Route path="/search/:zip" component={Listings}/>
-              <Route path="/post/:id" component={Post}/>
-              <Route path="/add" component={Add}/>
-              <Route path="/myinventory" component={Inventory}/>
-              <Route path="/mygaragesale" component={Garagesale}/>
-              <Route path="/settings" component={Settings}/>
-              <Route path="/savedgaragesale" component={Savedgaragesales}/>
-              <Route path="/watchlist" component={Watchlist}/>
-              <Route path="/login" component={Login}/>
-              <Route path="/register" component={Register}/>
-                 
-             </div>
-            </Segment>
-          </Sidebar.Pusher>
-        </Sidebar.Pushable>
-        </div>
+        <div className="container">
+                  <Burgermenu />
+                  <Route exact path="/" component={Landing}/>
+                  <Route path="/search/:zip" component={Listings}/>
+                  <Route path="/post/:id" component={Post}/>
+                  <Route path="/add" component={Add}/>
+                  <Route path="/myinventory" component={Inventory}/>
+                  <Route path="/mygaragesale" component={Garagesale}/>
+                  <Route path="/myprofile" component={Myprofile}/>
+                  <Route path="/savedgaragesale" component={Savedgaragesales}/>
+                  <Route path="/watchlist" component={Watchlist}/>
+                  <Route path="/login" component={Login}/>
+                  <Route path="/register" component={Register}/>
+            </div>
       </Router>
     </Provider>
   )
