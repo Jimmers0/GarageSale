@@ -6,11 +6,15 @@ import {useSelector} from 'react-redux'
 
 export default props => {
 const [zip, setZip] = useState('')
+const [item, setItem] = useState('')
 
 
 
 function searchIt() {
     props.history.push('/search/' + zip)
+}
+function searchItem() {
+    props.history.push('/items/' + item)
 }
 
     return (
@@ -23,14 +27,12 @@ function searchIt() {
                     <h1>Search your Zip Code for Garage sales in your area!</h1>
                     <input id="zip" type="text" value={zip} onChange={e => setZip(e.target.value)} />
                     <Button type="submit" primary>Search</Button>
-  
                 </Form>
                 <hr></hr>
-                <Form id="searchForm" onSubmit={searchIt}>
+                <Form id="searchForm" onSubmit={searchItem}>
                     <h1>Search for an item</h1>
-                    <input id="zip" type="text" value={zip} onChange={e => setZip(e.target.value)} />
+                    <input id="zip" type="text" value={item} onChange={e => setItem(e.target.value)} />
                     <Button type="submit" secondary>Search</Button>
-  
                 </Form>
             </div>
         </div>

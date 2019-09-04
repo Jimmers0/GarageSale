@@ -1,0 +1,18 @@
+#itemSearchWrapper{
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    color: white;
+}
+#searchImage {
+    width: 300px;
+    height: 300px;
+}
+#searchResults {
+
+}

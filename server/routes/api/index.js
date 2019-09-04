@@ -139,6 +139,13 @@ router.get('/usersavedsales', (req, res, next) => {
     res.json(result)
   })
 })
+router.get('/searchItem', (req, res, next) => {
+  sql = `SELECT * from items WHERE name LIKE "%?%"`
+  conn.query(`SELECT * from items WHERE item_name LIKE "%${req.query.item}%"`, (err, results, fields) => {
+    console.log(err)
+    res.json(results)
+  })
+})
 
 
 module.exports = router
