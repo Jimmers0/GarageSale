@@ -23,7 +23,7 @@ export default function(state = initialState, action) {
     case 'ADD':
       return {...state, savedsales:[ action.payload, ...state.savedsales]}
     case "INVALID_REDIRECT":
-      return {...state, authRedirect: action.payload.validated, userDetails: action.payload}
+      return {...state, authRedirect: action.payload.validated, userDetails: [action.payload]}
     case "LOGIN_STATUS":
       return {...state, loginResponse: action.payload}
     case "GET_CORDS":

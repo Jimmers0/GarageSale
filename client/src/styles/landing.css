@@ -1,5 +1,6 @@
 #landingWrapper {
     width: 100%;
+    min-height: 100%;
     height: 100vh;
     margin: auto;
     background-color: rgb(99, 99, 99);
@@ -10,11 +11,17 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding-top: 100px;
     padding-left: 10px;
     padding-right: 10px;
     text-align: center;
     color: white;
+}
+.orText {
+    font-size: 35px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: rgb(192,7,18);
 }
 #zip {
     width: 300px;
