@@ -120,6 +120,22 @@ router.post('/createPost', (req, res, next) => {
     })
   })
 })
+router.post('/savesale', (req, res, next) => {
+  const sql = `INSERT INTO savedsales (post_id, user_id) VALUES (?,?)`
+  conn.query(sql, [req.body.post_id, req.body.user_id], (err, results, fields) => {
+
+  })
+})
+
+router.get('/usersavedsales', (req, res, next) => {
+  conn.query(`SELECT * FROM savedsales s 
+  JOIN posts p 
+  WHERE p.postID = s.post_id and s.user_id = "${req.query.id}"
+  `,
+  (err, result, fields) => {
+    res.json(result)
+  })
+})
 
 
 module.exports = router
