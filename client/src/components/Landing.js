@@ -25,6 +25,13 @@ function searchIt() {
                     <Button type="submit" primary>Search</Button>
   
                 </Form>
+                <hr></hr>
+                <Form id="searchForm" onSubmit={searchIt}>
+                    <h1>Search for an item</h1>
+                    <input id="zip" type="text" value={zip} onChange={e => setZip(e.target.value)} />
+                    <Button type="submit" secondary>Search</Button>
+  
+                </Form>
             </div>
         </div>
     )
