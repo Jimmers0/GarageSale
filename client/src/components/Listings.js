@@ -33,7 +33,7 @@ export default props => {
 
 
     return (
-        <div>
+        <div id="listingContent">
             <div id="viewOptions">
                 <button onClick={e => setView('map')}>Map View</button>
                 <button onClick={e => setView('list')}>List View</button>
