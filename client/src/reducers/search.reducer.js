@@ -7,7 +7,7 @@ const initialState = {
   logged: false,
   loginResponse: '',
   searchCords: {},
-  userDetails: []
+  userDetails: [{id: 0}]
 }
 
 export default function(state = initialState, action) {
