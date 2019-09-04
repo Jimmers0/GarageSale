@@ -146,6 +146,12 @@ router.get('/searchItem', (req, res, next) => {
     res.json(results)
   })
 })
+router.get('/getMySale', (req, res, next) => {
+  sql = `SELECT * FROM posts WHERE user_id = ?`
+  conn.query(sql, [req.query.id], (err, results, fields) => {
+      res.json(results)
+  })
+})
 
 
 module.exports = router
