@@ -16,6 +16,7 @@ import Watchlist from './Watchlist'
 import Savedgaragesales from './Savedgaragesales'
 import Register from './Register'
 import Burgermenu from './menu'
+import ItemSearch from './ItemSearch.js'
 
 
 export default props => {
@@ -36,6 +37,7 @@ export default props => {
                   <Route path="/watchlist" component={Watchlist}/>
                   <Route path="/login" component={Login}/>
                   <Route path="/register" component={Register}/>
+                  <Route path="/items/:item" component={ItemSearch}/>
             </div>
       </Router>
     </Provider>

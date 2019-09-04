@@ -19,3 +19,11 @@ export function getCords(zip) {
         })
     })
 }
+export function getItemResults(item) {
+    axios.get('/api/searchItem?item=' + item).then(resp => {
+        store.dispatch({
+            type: "ITEM_SEARCH",
+            payload: resp.data
+        })
+    })
+}
