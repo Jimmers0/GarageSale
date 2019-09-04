@@ -8,7 +8,8 @@ const initialState = {
   loginResponse: '',
   searchCords: {},
   userDetails: [{id: 0}],
-  resultItems: []
+  resultItems: [],
+  mySale: []
 }
 
 export default function(state = initialState, action) {
@@ -33,6 +34,8 @@ export default function(state = initialState, action) {
       return {...state, savedsales: action.payload}
     case "ITEM_SEARCH":
       return {...state, resultItems: action.payload}
+    case "MY_SALE":
+      return {...state, mySale: action.payload}
     default:
       return state
   }
