@@ -61,7 +61,7 @@ router.post('/login', (req, res, next) => {
   const sql =  `SELECT * FROM users WHERE username = ? AND password = ? `
   conn.query(sql, [username, password], (err, results, fields) => {
     if (results.length > 0){
-      const token = jwt.sign({username}, config.get('secret'))
+      const token = jwt.sign({username: username, id: results[0].id}, config.get('secret'))
       res.json({
         message: "User signed in",
         token: token

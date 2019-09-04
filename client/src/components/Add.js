@@ -31,7 +31,7 @@ export default props => {
     const [fileName, setFileName] = useState('')
 
     const loginValid = useSelector(appState => appState.authRedirect)
-
+    const userDetails = useSelector(appState => appState.userDetails)
 
     useEffect(() => {
         checkLogin()
