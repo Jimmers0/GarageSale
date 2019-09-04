@@ -19,6 +19,7 @@ function searchIt() {
             </div>
             <div id="search">
                 <Form id="searchForm" onSubmit={searchIt}>
+                    <img src="https://i.imgur.com/8tmr7Z3.png" alt="" id="logo"/>
                     <h1>Search your Zip Code for Garage sales in your area!</h1>
                     <input id="zip" type="text" value={zip} onChange={e => setZip(e.target.value)} />
                     <Button type="submit" primary>Search</Button>

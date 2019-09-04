@@ -3,6 +3,12 @@
     
     
 }
+#listingContent {
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    background-color: rgb(99,99,99);
+}
 
 .salepost {
     position: relative;
@@ -11,9 +17,13 @@
     border-radius: 10px;
     
 }
+#markerPin {
+    width: 60px;
+    height: 60px;
+}
 #map {
     width: 100%;
-    height: 80vh;
+    height: 620px;
 }
 #viewOptions {
     display: flex;
@@ -28,18 +38,18 @@
     margin: 10px;
 }
 #marker {
-    width: 50px;
-    height: 45px;
-    background-color: #555;
+    width: 60px;
+    height: 60px;
     color: white;
     font-size: 14px;
     border-radius: 200px;
-    line-height: 45px;
+    line-height: 60px;
     text-align: center;
 }
 .info {
     width: 300px;
     min-height: 100%;
+    margin-top: -30px;
     background-color: white;
     color: black;
 }
