@@ -32,6 +32,9 @@ export default props => {
         }
     }
 
+    
+
+    console.log(userDetails[0].id)
    
 
 
@@ -84,8 +87,8 @@ export default props => {
                   </Link>
                   {userDetails.length > 0 ?  <div>Save Sale {' '}
                   
-                  <Button icon type="submit" size="small" color="black" onClick={e => saveSale(sale)}>
-                  <Icon name='crosshairs' />
+                  <Button icon type="submit" size="small" color="black" onClick={e => saveSale(userDetails[0].id, sale.postID)}>
+                  <Icon name='crosshairs' />t n
                   </Button></div> : ""}
   
                  

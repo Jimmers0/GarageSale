@@ -11,6 +11,7 @@ export function getPosts(id) {
       })
     })
   }
+  
   export function getItems(id) {
     axios.get("/api/items?id=" + id).then(resp => {
       store.dispatch({
@@ -20,12 +21,19 @@ export function getPosts(id) {
     })
   }
 
-  export function saveSale(sale){
-    console.log('sale:', sale)
-    store.dispatch ({
-      type: 'ADD',
-      payload: sale
-               
+  export function getSavedSales(id) {
+    axios.get("/api/usersavedsales?id=" + id).then(resp => {
+      store.dispatch({
+        type: "SAVED_SALES",
+        payload: resp.data
+      })
+    })
+  }
+
+  export function saveSale(user_id, post_id){
+    axios.post('/api/savesale', {
+      user_id: user_id,
+      post_id: post_id
     })
   }
 

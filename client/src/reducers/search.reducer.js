@@ -7,7 +7,7 @@ const initialState = {
   logged: false,
   loginResponse: '',
   searchCords: {},
-  userDetails: []
+  userDetails: [{id: 0}]
 }
 
 export default function(state = initialState, action) {
@@ -28,6 +28,8 @@ export default function(state = initialState, action) {
       return {...state, loginResponse: action.payload}
     case "GET_CORDS":
       return {...state, searchCords: action.payload}
+    case "SAVED_SALES":
+      return {...state, savedsales: action.payload}
     default:
       return state
   }
