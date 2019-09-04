@@ -1,6 +1,9 @@
 import store from '../store'
 import axios from 'axios'
 
+
+
+
 export function getInventory() {
     
     axios.post('/api/inventory', {
