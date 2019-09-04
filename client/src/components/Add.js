@@ -35,10 +35,10 @@ export default props => {
 
     useEffect(() => {
         checkLogin()
-    }, [loginValid])
-    
+    }, [])
+
     function addPost() {
-        createPost(name, city, state, zip, address, date, images)
+        createPost(name, city, state, zip, address, date, images, userDetails[0].id)
         setResults('Your garage sale has been successfully added to our system!')
         setCity('')
         setState('')
