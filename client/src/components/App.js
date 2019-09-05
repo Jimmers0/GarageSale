@@ -16,6 +16,7 @@ import Watchlist from './Watchlist'
 import Savedgaragesales from './Savedgaragesales'
 import Register from './Register'
 import Burgermenu from './menu'
+import ItemSearch from './ItemSearch.js'
 
 
 export default props => {
@@ -32,10 +33,11 @@ export default props => {
                   <Route path="/myinventory" component={Inventory}/>
                   <Route path="/mygaragesale" component={Garagesale}/>
                   <Route path="/myprofile" component={Myprofile}/>
-                  <Route path="/savedgaragesale" component={Savedgaragesales}/>
+                  <Route path="/savedgaragesale/:id" component={Savedgaragesales}/>
                   <Route path="/watchlist" component={Watchlist}/>
                   <Route path="/login" component={Login}/>
                   <Route path="/register" component={Register}/>
+                  <Route path="/items/:item" component={ItemSearch}/>
             </div>
       </Router>
     </Provider>

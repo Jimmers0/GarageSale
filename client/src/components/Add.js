@@ -31,14 +31,14 @@ export default props => {
     const [fileName, setFileName] = useState('')
 
     const loginValid = useSelector(appState => appState.authRedirect)
-
+    const userDetails = useSelector(appState => appState.userDetails)
 
     useEffect(() => {
         checkLogin()
-    }, [loginValid])
-    
+    }, [])
+
     function addPost() {
-        createPost(name, city, state, zip, address, date, images)
+        createPost(name, city, state, zip, address, date, images, userDetails[0].id)
         setResults('Your garage sale has been successfully added to our system!')
         setCity('')
         setState('')

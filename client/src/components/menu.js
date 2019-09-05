@@ -1,14 +1,22 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { slide as Menu } from 'react-burger-menu'
 import '../styles/menu.css'
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 import {useSelector} from 'react-redux'
-import { logout } from '../actions/login.actions'
+import { logout, checkLogin } from '../actions/login.actions'
  
 export default props => {
 
     const login = useSelector(appState => appState.logged)
-    console.log('menu', login)
+    console.log(login)
+    const userDetails = useSelector(appState => appState.userDetails)
+
+    useEffect(() => {
+        checkLogin()
+    }, [])
+
+    let user = userDetails[0].id
+    console.log(user)
 
     return (
 
@@ -58,7 +66,7 @@ export default props => {
             </div>
         </a>    
 
-        <a id="savedgaragesales" className="menu-item" style={{outline: 'none' }} href="/savedgaragesales">
+        <a id="savedgaragesales" className="menu-item" style={{outline: 'none' }} href={`/savedgaragesale/${user}`}>
             <div className="item"> 
                 <div className="icon">
                     <MaterialIcon icon="gps_fixed" size={20} color={colorPalette.grey._50} /> 
@@ -80,7 +88,7 @@ export default props => {
             </div>
         </a>
         <div>
-            {login === 'false' ? <a id="logout" className="menu-item" style={{outline: 'none' }} href="/login">
+            {!login ? <a id="logout" className="menu-item" style={{outline: 'none' }} href="/login">
             <div className="item"> 
                 <div className="icon">
                     <MaterialIcon icon="account_box" size={20} color={colorPalette.grey._50} /> 

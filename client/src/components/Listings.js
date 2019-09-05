@@ -3,6 +3,7 @@ import '../styles/Listings.css'
 import { useSelector } from 'react-redux'
 import { grabPosts, getCords } from '../actions/landing.actions'
 import { saveSale } from '../actions/posting.actions'
+import { checkLogin } from '../actions/login.actions'
 import moment from 'moment'
 import {Link} from 'react-router-dom'
 import { Button, Icon } from 'semantic-ui-react'
@@ -16,12 +17,14 @@ export default props => {
 
     const sales = useSelector(appState => appState.listings)
     const coords = useSelector(appState => appState.searchCords)
+    const userDetails = useSelector(appState => appState.userDetails)
 
     useEffect(() => {
         grabPosts(props.match.params.zip)
         getCords(props.match.params.zip)
-
+        checkLogin()
     }, [props.match.params.zip])
+    console.log(userDetails)
 
     function checkSales() {
         if (sales.length === 0) {
@@ -29,11 +32,14 @@ export default props => {
         }
     }
 
+    
+
+    console.log(userDetails[0].id)
    
 
 
     return (
-        <div>
+        <div id="listingContent">
             <div id="viewOptions">
                 <button onClick={e => setView('map')}>Map View</button>
                 <button onClick={e => setView('list')}>List View</button>
@@ -58,7 +64,7 @@ export default props => {
             </GoogleMapReact>
           </div>
             : ( view === "list"
-              ?    <div className="t">
+              ? 
     
               <div className="salepostcontainer">
               {sales.map((sale, i) => (
@@ -79,18 +85,16 @@ export default props => {
   
                   </div>
                   </Link>
-                  Save Sale {' '}
+                  {userDetails.length > 0 ?  <div>Save Sale {' '}
                   
-                  <Button icon type="submit" size="small" color="black" onClick={e => saveSale(sale)}>
-                  <Icon name='crosshairs' />
-                  </Button>
+                  <Button icon type="submit" size="small" color="black" onClick={e => saveSale(userDetails[0].id, sale.postID)}>
+                  <Icon name='crosshairs' />t n
+                  </Button></div> : ""}
   
                  
               
               </div>
               ))} 
-              
-              </div> 
   
              
   

@@ -62,7 +62,7 @@ router.post('/login', (req, res, next) => {
   const sql =  `SELECT * FROM users WHERE username = ? AND password = ? `
   conn.query(sql, [username, password], (err, results, fields) => {
     if (results.length > 0){
-      const token = jwt.sign({username}, config.get('secret'))
+      const token = jwt.sign({username: username, id: results[0].id}, config.get('secret'))
       res.json({
         message: "User signed in",
         token: token
@@ -111,14 +111,46 @@ router.post('/createPost', (req, res, next) => {
     const lng = resp.data.results[0].geometry.location.lng
     var id = shortid.generate()
     const sql = `INSERT INTO posts (name, date, active, user_id, zip, city, state, address, postID, lat, lng) VALUES (?,?,?,?,?,?,?,?,?,?,?)`
-    conn.query(sql, [req.body.name, req.body.date, true, req.body.user_id, req.body.zip, req.body.city, req.body.state, req.body.address, id, lat, lng], (err, result, fields) => {
+    conn.query(sql, [req.body.name, req.body.date, true, req.body.user_id, req.body.zip, req.body.city, req.body.state, req.body.address, id, lat, lng, req.body.id], (err, result, fields) => {
       req.body.images.forEach(item => {
-        const imageSQL = 'INSERT into items (price, picture, post_id) VALUES (?,?,?)'
-        conn.query(imageSQL, [item.price, item.url, id], (err, result, fields) => {
+        const imageSQL = 'INSERT into items (item_name, item_condition, price, picture, post_id, user_id) VALUES (?,?,?,?,?,?)'
+        conn.query(imageSQL, [item.name, item.condition, item.price, item.url, id, req.body.user_id], (err, result, fields) => {
+          console.log(err)
+          console.log(result)
+          console.log(fields)
         })
       })
       res.json({id: id})
     })
+  })
+})
+router.post('/savesale', (req, res, next) => {
+  const sql = `INSERT INTO savedsales (post_id, user_id) VALUES (?,?)`
+  conn.query(sql, [req.body.post_id, req.body.user_id], (err, results, fields) => {
+
+  })
+})
+
+router.get('/usersavedsales', (req, res, next) => {
+  conn.query(`SELECT * FROM savedsales s 
+  JOIN posts p 
+  WHERE p.postID = s.post_id and s.user_id = "${req.query.id}"
+  `,
+  (err, result, fields) => {
+    res.json(result)
+  })
+})
+router.get('/searchItem', (req, res, next) => {
+  sql = `SELECT * from items WHERE name LIKE "%?%"`
+  conn.query(`SELECT * from items WHERE item_name LIKE "%${req.query.item}%"`, (err, results, fields) => {
+    console.log(err)
+    res.json(results)
+  })
+})
+router.get('/getMySale', (req, res, next) => {
+  sql = `SELECT * FROM posts WHERE user_id = ?`
+  conn.query(sql, [req.query.id], (err, results, fields) => {
+      res.json(results)
   })
 })
 

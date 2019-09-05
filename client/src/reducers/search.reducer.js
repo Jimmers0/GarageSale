@@ -4,11 +4,14 @@ const initialState = {
   items: [],
   savedsales: [],
   authRedirect: false,
-  logged: '',
+  logged: false,
   loginResponse: '',
   searchCords: {},
   inventory: [],
-  items: []
+  items: [],
+  userDetails: [{id: 0}],
+  resultItems: [],
+  mySale: []
 }
 
 export default function(state = initialState, action) {
@@ -24,15 +27,19 @@ export default function(state = initialState, action) {
     case 'ADD':
       return {...state, savedsales:[ action.payload, ...state.savedsales]}
     case "INVALID_REDIRECT":
-      return {...state, authRedirect: action.payload}
+      return {...state, authRedirect: action.payload.validated, userDetails: [action.payload]}
     case "LOGIN_STATUS":
       return {...state, loginResponse: action.payload}
     case "GET_CORDS":
       return {...state, searchCords: action.payload}
       case 'INVENTORY':
         return {...state, inventory: action.payload}
-      case 'GET_ITEMS':
-        return {...state, items: action.payload}
+    case "SAVED_SALES":
+      return {...state, savedsales: action.payload}
+    case "ITEM_SEARCH":
+      return {...state, resultItems: action.payload}
+    case "MY_SALE":
+      return {...state, mySale: action.payload}
     default:
       return state
   }

@@ -5,7 +5,7 @@ export default props => {
 
     return (
         <div id="marker" onClick={e => setHider(!hider)}>
-        {props.text}
+        <img id="markerPin" src="https://i.imgur.com/Sdtl2YI.png" alt=""/>
         <div className={`info ${hider ? "" : "hide"}`}>
             <p>{props.item.name}</p>
             <p>Roughly {props.item.distance} / {props.item.duration}</p>
