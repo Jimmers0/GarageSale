@@ -24,7 +24,6 @@ export default props => {
         getCords(props.match.params.zip)
         checkLogin()
     }, [props.match.params.zip])
-    console.log(userDetails)
 
     function checkSales() {
         if (sales.length === 0) {
@@ -34,7 +33,6 @@ export default props => {
 
     
 
-    console.log(userDetails[0].id)
    
 
 

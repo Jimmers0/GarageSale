@@ -17,7 +17,6 @@ export default props => {
     register(username, password, fname, lname, city, state)
     props.history.push('/login')
   }
-  console.log(state)
 
     return(
           <form onSubmit={sendRegister} className="registerForm">

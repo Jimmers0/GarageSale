@@ -48,7 +48,6 @@ export default props => {
         setName('')
         setButton(true)
         setImages([])
-        console.log(images)
     }
     function handleUploadStart(filename) {
         setIsUploading(true)
@@ -59,7 +58,6 @@ export default props => {
     }
     function handleUploadError(error) {
         setIsUploading(false)
-        console.log(error)
     }
     function handleUploadSuccess(filename,e) {
         setFileName('')
@@ -88,7 +86,6 @@ export default props => {
             <Autocomplete
     style={{width: '90%'}}
     onPlaceSelected={(place) => {
-      console.log(place)
       setCity(place.address_components[2].long_name)
       setState(place.address_components[4].long_name)
       setZip(place.address_components[6].long_name)

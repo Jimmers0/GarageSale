@@ -22,7 +22,6 @@ export default props =>{
     useEffect(() => {
         checkIfRated(userDetails[0].id, props.match.params.id)
     }, [userDetails])
-    console.log(checkRate)
 
 
     function thumbsUp() {

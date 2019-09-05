@@ -6,7 +6,6 @@ import io from 'socket.io-client'
 const socket = io.connect('http://localhost:8000')
 
 socket.on('new person', name => {
-  console.log(name)
 })
 
 export function submitName(name) {

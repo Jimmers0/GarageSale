@@ -29,7 +29,6 @@ export function getItemResults(item) {
 }
 export function getMySale(id) {
     axios.get('/api/getMySale?id=' + id).then(resp => {
-        console.log(resp.data)
         store.dispatch({
             type: "MY_SALE",
             payload: resp.data

@@ -1,66 +1,50 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useSelector } from 'react-redux' 
-import { getInventory } from '../actions/inventory.actions'
+import { getInventory, markAsSold } from '../actions/inventory.actions'
 import { checkLogin } from '../actions/login.actions'
+import '../styles/inventory.css'
+import InventoryItem from './InventoryItem'
 
 // import {Link} from 'react-router-dom'
 
 
 export default props=> {
-    const getInventories = useSelector(appState => appState.inventory)
-    const getuserDetails = useSelector(appState => appState.userDetails)
+    const [message, setMessage] = useState('')
+    const [button, setButton] = useState(false)
+    const Inventories = useSelector(appState => appState.inventory)
+    const userDetails = useSelector(appState => appState.userDetails)
+    const loginValid = useSelector(appState => appState.authRedirect)
+
     
     useEffect(()=> {
         checkLogin()
-    },[])
-
-    console.log(getuserDetails)
+    },[Inventories])
+    useEffect(() => {
+        getInventory(userDetails[0].id)
+    }, [loginValid])
     
 return (
-        
-<div className="Inventories">
-        {/* {getInventories.getuserDetails.map(inv => {
-            return(
-       <span>{inv.id}</span>
-      
-       ) */}
-            })}
-       
-       </div>
+        <div id="inventoryWrapper">
+            <h1>My Inventory</h1>
+            <p>{message}</p>
+            {loginValid ? 
             
-
-
-
             
-    )
+            <div id="inventoryItems">
+                {Inventories.map(item => {
+                    return (
+                        <InventoryItem item={item}/>
+                    )
+                })}
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            : <p>Please login to view this page</p>}
+        </div>
+)
 }
-
-
-// export default props => {
-//     const inventory = useSelector(appState =>  appState.inventory)
-        
-//     useEffect(()=>{
-//             getInventory(props.match.params.slug)
-           
-        
-//         }, [])
-            
-            
-//     // pull inventory from redux
-//     // map each inventory into a div container
-//     return (
-
-//      <div id="Inventory">
-//      <span>Inventory</span>
-//     {inventory.map( inventory =>(
-//      <Link to = {"/"+ inventory.slug}>{inventory.name}</ Link>
-//     ))
-     
-//     }
-    
-
-//     </div>
-    
-    
-//     )
-// }

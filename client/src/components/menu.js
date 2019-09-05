@@ -8,7 +8,6 @@ import { logout, checkLogin } from '../actions/login.actions'
 export default props => {
 
     const login = useSelector(appState => appState.logged)
-    console.log(login)
     const userDetails = useSelector(appState => appState.userDetails)
 
     useEffect(() => {
@@ -16,7 +15,6 @@ export default props => {
     }, [])
 
     let user = userDetails[0].id
-    console.log(user)
 
     return (
 

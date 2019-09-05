@@ -55,7 +55,6 @@ export function createPost(name, city, state, zip, address, date, images, id) {
     images: images,
     user_id: id
   }).then(resp => {
-    console.log(resp.data)
   })
 }
 export function ratePost(user_id, post_id, rating) {
@@ -64,7 +63,6 @@ export function ratePost(user_id, post_id, rating) {
     post_id: post_id,
     rating: rating
   }).then(resp => {
-    console.log(resp.data)
   })
 }
 export function checkIfRated(user_id, post_id) {
