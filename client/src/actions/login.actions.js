@@ -52,13 +52,14 @@ export function login(username, password){
         })
     })
 }
-export function register(username, password, first_name, last_name){
-    console.log(username, password, first_name, last_name)
+export function register(username, password, fname, lname, city, state){
     axios.post('/api/register', {
       username: username, 
       password: password, 
-      first_name: first_name, 
-      last_name: last_name
+      first_name: fname, 
+      last_name: lname,
+      city: city,
+      state: state
     }).then(resp => {
     })
 }

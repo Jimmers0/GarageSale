@@ -9,7 +9,8 @@ const initialState = {
   searchCords: {},
   userDetails: [{id: 0}],
   resultItems: [],
-  mySale: []
+  mySale: [],
+  checkRate: []
 }
 
 export default function(state = initialState, action) {
@@ -36,6 +37,8 @@ export default function(state = initialState, action) {
       return {...state, resultItems: action.payload}
     case "MY_SALE":
       return {...state, mySale: action.payload}
+    case "CHECK_IF_RATED":
+      return {...state, checkRate: action.payload}
     default:
       return state
   }

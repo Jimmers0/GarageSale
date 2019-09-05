@@ -152,6 +152,19 @@ router.get('/getMySale', (req, res, next) => {
       res.json(results)
   })
 })
-
+router.post('/ratePost', (req, res, next) => {
+  const sql = `INSERT INTO ratings (user_id, post_id, rating) VALUES(?,?,?)`
+  conn.query(sql, [req.body.user_id, req.body.post_id, req.body.rating], (err, results, fields) => {
+    res.json({message: "Success"})
+  })
+})
+router.post('/checkIfRated', (req, res, next) => {
+  const sql = `SELECT * FROM ratings WHERE user_id = ? AND post_id = ?`
+  console.log(req.body.user_id, req.body.post_id)
+  conn.query(sql,[req.body.user_id, req.body.post_id], (err, results, fields) => {
+    console.log(results)
+    res.json(results)
+  })
+})
 
 module.exports = router
