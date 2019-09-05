@@ -7,6 +7,8 @@ const initialState = {
   logged: false,
   loginResponse: '',
   searchCords: {},
+  inventory: [],
+  items: [],
   userDetails: [{id: 0}],
   resultItems: [],
   mySale: []
@@ -30,6 +32,8 @@ export default function(state = initialState, action) {
       return {...state, loginResponse: action.payload}
     case "GET_CORDS":
       return {...state, searchCords: action.payload}
+      case 'INVENTORY':
+        return {...state, inventory: action.payload}
     case "SAVED_SALES":
       return {...state, savedsales: action.payload}
     case "ITEM_SEARCH":

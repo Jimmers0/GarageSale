@@ -47,10 +47,11 @@ router.get('/items', (req, res, next) => {
   })
 })
 
-router.get('/inventory', (req, res, next) => {
+router.post('/inventory', (req, res, next) => {
   const userID = req.body.userID;
 
   conn.query(`SELECT * FROM inventory WHERE user_id = "${userID}"`, (err, result, fields) => {
+    console.log(result)
     res.json(result);
   })
 })
