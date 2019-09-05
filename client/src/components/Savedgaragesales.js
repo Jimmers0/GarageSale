@@ -11,7 +11,6 @@ export default props => {
 
     const sales = useSelector(appState => appState.savedsales)
 
-    console.log('sales', sales)
     useEffect (() => {
         getSavedSales(props.match.params.id)
         

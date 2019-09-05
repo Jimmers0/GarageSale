@@ -48,10 +48,10 @@ router.get('/items', (req, res, next) => {
 })
 
 router.post('/inventory', (req, res, next) => {
-  const userID = req.body.userID;
+  const sql = `SELECT * FROM items WHERE user_id = ?`
 
-  conn.query(`SELECT * FROM inventory WHERE user_id = "${userID}"`, (err, result, fields) => {
-    console.log(result)
+  conn.query(sql,[req.body.userID], (err, result, fields) => {
+    console.log(req.body.userID)
     res.json(result);
   })
 })
@@ -163,6 +163,14 @@ router.post('/checkIfRated', (req, res, next) => {
   const sql = `SELECT * FROM ratings WHERE user_id = ? AND post_id = ?`
   console.log(req.body.user_id, req.body.post_id)
   conn.query(sql,[req.body.user_id, req.body.post_id], (err, results, fields) => {
+    console.log(results)
+    res.json(results)
+  })
+})
+router.get('/markAsSold', (req, res, next) => {
+  const sql = `UPDATE items SET sold = 1 WHERE id = ?`
+  conn.query(sql, [req.query.id], (err, results, fields) => {
+    console.log(err)
     console.log(results)
     res.json(results)
   })

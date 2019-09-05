@@ -43,6 +43,8 @@ export default function(state = initialState, action) {
       return {...state, mySale: action.payload}
     case "CHECK_IF_RATED":
       return {...state, checkRate: action.payload}
+    case "MARK_SOLD":
+      return {...state, inventory: [...state.inventory]}
     default:
       return state
   }
