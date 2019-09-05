@@ -8,26 +8,30 @@ import { checkLogin } from '../actions/login.actions'
 
 export default props=> {
     const getInventories = useSelector(appState => appState.inventory)
-    const userID = useSelector(appState => appState.userID)
+    const getuserDetails = useSelector(appState => appState.userDetails)
     
     useEffect(()=> {
         checkLogin()
-     getInventory(props.match.params.slug)
-    },[props.match.params.slug])
-    // getInventory(userID)
-    // },[props.match.params.slug])
+    },[])
 
-    return (
+    console.log(getuserDetails)
+    
+return (
         
 <div className="Inventories">
-        {getInventories.map(inv => {
+        {/* {getInventories.getuserDetails.map(inv => {
             return(
        <span>{inv.id}</span>
-       )
+      
+       ) */}
             })}
        
        </div>
-        
+            
+
+
+
+            
     )
 }
 
