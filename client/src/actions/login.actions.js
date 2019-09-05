@@ -2,6 +2,8 @@ import store from '../store'
 import axios from 'axios'
 
 
+
+
 if(localStorage.getItem('token')){
     setInterceptors(localStorage.getItem('token'))
     store.dispatch({

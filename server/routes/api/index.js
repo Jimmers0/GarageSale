@@ -6,6 +6,10 @@ const sha512 = require('js-sha512')
 const jwt = require('jsonwebtoken')
 const config = require('config')
 
+
+
+
+
 let finalObj = []
 router.get('/getPosts/:zip', (req, res, next) => {
   conn.query('SELECT * FROM posts', (err, result, fields) => {
@@ -132,6 +136,8 @@ router.post('/savesale', (req, res, next) => {
 })
 
 router.get('/usersavedsales', (req, res, next) => {
+
+  console.log(req.query.id)
   conn.query(`SELECT * FROM savedsales s 
   JOIN posts p 
   WHERE p.postID = s.post_id and s.user_id = "${req.query.id}"
@@ -140,6 +146,7 @@ router.get('/usersavedsales', (req, res, next) => {
     res.json(result)
   })
 })
+
 router.get('/searchItem', (req, res, next) => {
   sql = `SELECT * from items WHERE name LIKE "%?%"`
   conn.query(`SELECT * from items WHERE item_name LIKE "%${req.query.item}%"`, (err, results, fields) => {
