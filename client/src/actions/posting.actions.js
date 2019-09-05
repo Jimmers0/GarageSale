@@ -58,3 +58,23 @@ export function createPost(name, city, state, zip, address, date, images, id) {
     console.log(resp.data)
   })
 }
+export function ratePost(user_id, post_id, rating) {
+  axios.post('/api/ratePost', {
+    user_id: user_id,
+    post_id: post_id,
+    rating: rating
+  }).then(resp => {
+    console.log(resp.data)
+  })
+}
+export function checkIfRated(user_id, post_id) {
+  axios.post('/api/checkIfRated', {
+    user_id: user_id,
+    post_id: post_id
+  }).then(resp => {
+    store.dispatch({
+      type: "CHECK_IF_RATED",
+      payload: resp.data
+    })
+  })
+}

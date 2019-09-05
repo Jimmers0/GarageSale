@@ -1,18 +1,44 @@
 import React, {useEffect } from 'react'
 import {useSelector} from 'react-redux'
-import {getPosts, getItems} from '../actions/posting.actions'
+import {getPosts, getItems, ratePost, checkIfRated} from '../actions/posting.actions'
 import '../styles/garageView.css'
 import moment from 'moment'
+import { checkLogin } from '../actions/login.actions'
+
 
 
 export default props =>{
     const post = useSelector(appState => appState.post)
     const items = useSelector(appState => appState.items)
+    const loginValid = useSelector(appState => appState.authRedirect)
+    const userDetails = useSelector(appState => appState.userDetails)
+    const checkRate = useSelector(appState => appState.checkRate)
     
     useEffect (() => {
         getPosts(props.match.params.id)
         getItems(props.match.params.id)
-    },[props.match.params.id])
+        checkLogin()
+    },[])
+    useEffect(() => {
+        checkIfRated(userDetails[0].id, props.match.params.id)
+    }, [userDetails])
+    console.log(checkRate)
+
+
+    function thumbsUp() {
+        if (!loginValid) {
+            props.history.push('/login')
+        } else {
+            ratePost(userDetails[0].id, props.match.params.id, 1)
+        }
+    }
+    function thumbsDown() {
+        if (!loginValid) {
+            props.history.push('/login')
+        } else {
+            ratePost(userDetails[0].id, props.match.params.id, 0)
+        }
+    }
 return (
     <div id="garageViewWrapper">
         {post.map(item => {
@@ -22,6 +48,8 @@ return (
                 <p>Location: {item.address}</p>
                 <p>Date: {moment(item.date).format("dddd MM/DD")}</p>
                 <p>Time: 11:00AM - 6:00PM</p>
+                {checkRate.length > 0 ? "" : <div>                <button onClick={thumbsUp}>Thumbs Up</button>
+                <button onClick={thumbsDown}>Thumbs Down</button></div>}
                 </div>
             )
         })}
