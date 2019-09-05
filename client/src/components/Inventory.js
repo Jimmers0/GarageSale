@@ -6,7 +6,7 @@ import { getInventory } from '../actions/inventory.actions'
 
 
 export default props=> {
-    const getInventories = useSelector(appState => appState.getInventory)
+    const getInventories = useSelector(appState => appState.inventory)
     
     useEffect(()=> {
      getInventory(props.match.params.slug)
@@ -16,9 +16,11 @@ export default props=> {
     return (
         
 <div className="Inventories">
-        {getInventories.map(inv => (
-       <span>inv.id</span>
-        ))}
+        {getInventories.map(inv => {
+            return(
+       <span>{inv.id}</span>
+       )
+            })}
        
        </div>
         

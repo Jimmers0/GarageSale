@@ -10,9 +10,10 @@ export function getInventory() {
         // pull userID 
         userID: 1
     }).then(resp => {
+        console.log(resp.data)
         store.dispatch({
             type: 'INVENTORY',
-            payload: resp.data.inventory
+            payload: resp.data
           })
     })
 }
