@@ -12,7 +12,7 @@ export default props => {
     const userDetails = useSelector(appState => appState.userDetails)
 
     useEffect(() => {
-        checkLogin()
+        
     }, [])
 
     let user = userDetails[0].id
@@ -66,7 +66,7 @@ export default props => {
             </div>
         </a>    
 
-        <a id="savedgaragesales" className="menu-item" style={{outline: 'none' }} href={`/savedgaragesale/${user}`}>
+        <a id="savedgaragesales" className="menu-item" style={{outline: 'none' }} href={`/savedgaragesale`}>
             <div className="item"> 
                 <div className="icon">
                     <MaterialIcon icon="gps_fixed" size={20} color={colorPalette.grey._50} /> 

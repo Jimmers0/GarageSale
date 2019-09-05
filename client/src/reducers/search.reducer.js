@@ -31,6 +31,7 @@ export default function(state = initialState, action) {
     case "GET_CORDS":
       return {...state, searchCords: action.payload}
     case "SAVED_SALES":
+      
       return {...state, savedsales: action.payload}
     case "ITEM_SEARCH":
       return {...state, resultItems: action.payload}

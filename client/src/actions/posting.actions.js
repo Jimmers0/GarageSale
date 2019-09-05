@@ -21,12 +21,14 @@ export function getPosts(id) {
     })
   }
 
-  export function getSavedSales(id) {
-    axios.get("/api/usersavedsales?id=" + id).then(resp => {
+  export function getSavedSales(userid) {
+    console.log('usertest', userid)
+    axios.get("/api/usersavedsales?id=" + userid).then(resp => {
       store.dispatch({
         type: "SAVED_SALES",
         payload: resp.data
       })
+      console.log(resp.data)
     })
   }
 
