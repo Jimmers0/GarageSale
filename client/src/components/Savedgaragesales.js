@@ -4,17 +4,34 @@ import { getSavedSales } from '../actions/posting.actions'
 import '../styles/savedgaragesales.css'
 import {Link} from 'react-router-dom'
 import moment from 'moment'
+import { checkLogin, authRedirect } from '../actions/login.actions';
 
 
 
 export default props => {
 
     const sales = useSelector(appState => appState.savedsales)
+    const userDetails = useSelector(appState => appState.userDetails)
+    const loginValid = useSelector(appState => appState.authRedirect)
+
+    let userid = userDetails[0].id
+    console.log("hey", userid)
+    
 
     useEffect (() => {
-        getSavedSales(props.match.params.id)
+        checkLogin()
+    
         
-    },[props.match.params.id])
+
+    },[])
+    useEffect (() => {
+        
+    getSavedSales(userid)
+        
+
+    },[loginValid])
+
+
 
 
 

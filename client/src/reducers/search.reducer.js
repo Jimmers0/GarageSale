@@ -35,6 +35,7 @@ export default function(state = initialState, action) {
       case 'INVENTORY':
         return {...state, inventory: action.payload}
     case "SAVED_SALES":
+      
       return {...state, savedsales: action.payload}
     case "ITEM_SEARCH":
       return {...state, resultItems: action.payload}
