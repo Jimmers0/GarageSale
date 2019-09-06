@@ -9,10 +9,6 @@ export default props => {
     const userDetails = useSelector(appState => appState.userDetails)
 
     useEffect(() => {
-        checkLogin()
-    }, [])
-
-    useEffect(() => {
         getMySale(userDetails[0].id)
     }, [userDetails])
 

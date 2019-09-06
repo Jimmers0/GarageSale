@@ -10,10 +10,6 @@ export default props => {
     const login = useSelector(appState => appState.logged)
     const userDetails = useSelector(appState => appState.userDetails)
 
-    useEffect(() => {
-        
-    }, [])
-
     let user = userDetails[0].id
 
     return (

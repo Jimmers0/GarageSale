@@ -21,7 +21,6 @@ export default props => {
     useEffect(() => {
         grabPosts(props.match.params.zip)
         getCords(props.match.params.zip)
-        checkLogin()
     }, [props.match.params.zip])
 
     
