@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
-import { getSavedSales } from '../actions/posting.actions'
+import { getSavedSales, getWatchList } from '../actions/posting.actions'
 import '../styles/savedgaragesales.css'
 import {Link} from 'react-router-dom'
 import moment from 'moment'
@@ -26,7 +26,7 @@ export default props => {
     },[])
     useEffect (() => {
         
-    getSavedSales(userid)
+    getWatchList(userid)
         
 
     },[loginValid])

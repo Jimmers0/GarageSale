@@ -135,12 +135,31 @@ router.post('/savesale', (req, res, next) => {
   })
 })
 
+router.post('/watchitem', (req, res, next) => {
+  const sql = `INSERT INTO watchlist (user_id, item_id) VALUES (?,?)`
+  conn.query(sql,  [req.body.user_id, req.body.item_id], (err, results, fields) => {
+
+  })
+})
+
 router.get('/usersavedsales', (req, res, next) => {
 
   console.log(req.query.id)
   conn.query(`SELECT * FROM savedsales s 
   JOIN posts p 
   WHERE p.postID = s.post_id and s.user_id = "${req.query.id}"
+  `,
+  (err, result, fields) => {
+    res.json(result)
+  })
+})
+
+router.get('/getwatchlist', (req, res, next) => {
+
+  console.log(req.query.id)
+  conn.query(`SELECT * FROM watchlist s 
+  JOIN items i 
+  WHERE i.id = s.item_id and s.user_id = "${req.query.id}"
   `,
   (err, result, fields) => {
     res.json(result)
