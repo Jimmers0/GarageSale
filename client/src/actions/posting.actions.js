@@ -32,10 +32,28 @@ export function getPosts(id) {
     })
   }
 
+  export function getWatchList(userid) {
+    console.log('usertest', userid)
+    axios.get("/api/getwatchlist?id=" + userid).then(resp => {
+      store.dispatch({
+        type: "WATCHLIST",
+        payload: resp.data
+      })
+      console.log('hi', resp.data)
+    })
+  }
+
   export function saveSale(user_id, post_id){
     axios.post('/api/savesale', {
       user_id: user_id,
       post_id: post_id
+    })
+  }
+
+  export function watchItem(user_id, item_id){
+    axios.post('/api/watchitem', {
+      user_id: user_id,
+      item_id: item_id
     })
   }
 

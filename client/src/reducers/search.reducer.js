@@ -12,7 +12,8 @@ const initialState = {
   userDetails: [{id: 0}],
   resultItems: [],
   mySale: [],
-  checkRate: []
+  checkRate: [],
+  watchlist: []
 }
 
 export default function(state = initialState, action) {
@@ -40,6 +41,8 @@ export default function(state = initialState, action) {
       return {...state, savedsales: action.payload}
     case "ITEM_SEARCH":
       return {...state, resultItems: action.payload}
+    case "WATCHLIST":
+      return {...state, watchlist: action.payload}
     case "MY_SALE":
       return {...state, mySale: action.payload}
     case "CHECK_IF_RATED":
