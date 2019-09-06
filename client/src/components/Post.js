@@ -17,7 +17,6 @@ export default props =>{
     useEffect (() => {
         getPosts(props.match.params.id)
         getItems(props.match.params.id)
-        checkLogin()
     },[props])
     useEffect(() => {
         checkIfRated(userDetails[0].id, props.match.params.id)

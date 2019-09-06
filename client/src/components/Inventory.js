@@ -13,13 +13,9 @@ export default props=> {
     const userDetails = useSelector(appState => appState.userDetails)
     const loginValid = useSelector(appState => appState.authRedirect)
 
-    
-    useEffect(()=> {
-        checkLogin()
-    },[Inventories])
     useEffect(() => {
         getInventory(userDetails[0].id)
-    }, [userDetails, loginValid])
+    }, [userDetails])
     
 return (
         <div id="inventoryWrapper">

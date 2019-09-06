@@ -31,6 +31,7 @@ function setInterceptors(){
         },
         err => Promise.reject(err) 
     );
+    checkLogin()
 }
 export function login(username, password){
     axios.post('/api/login', {

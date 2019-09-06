@@ -14,10 +14,6 @@ export default props => {
   const loginResponse = useSelector(appState => appState.loginResponse)
   const loginValid = useSelector(appState => appState.authRedirect)
 
-  useEffect(() => {
-    checkLogin()
-}, [])
-
   function sendRegister() {
     props.history.push('/register')
   }
