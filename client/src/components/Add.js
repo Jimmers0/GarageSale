@@ -26,7 +26,6 @@ export default props => {
     const [results, setResults] = useState('')
     const [button, setButton] = useState(false)
     const [isUploading, setIsUploading] = useState(false)
-    const [progress, setProgress] = useState('')
     const [images, setImages] = useState([])
     const [fileName, setFileName] = useState('')
 
@@ -51,17 +50,14 @@ export default props => {
     }
     function handleUploadStart(filename) {
         setIsUploading(true)
-        setProgress(0)
     }
     function handleProgress(progress) {
-        setProgress(progress)
     }
     function handleUploadError(error) {
         setIsUploading(false)
     }
     function handleUploadSuccess(filename,e) {
         setFileName('')
-        setProgress(100)
         setIsUploading(false)
         firebase
           .storage()
@@ -115,7 +111,7 @@ export default props => {
     {images.map((item, i) => {
         return(
             <div id="singleImage">
-            <img src={item.url}></img>
+            <img alt="" src={item.url}></img>
             <label htmlFor={"image-" + i}>Name:</label>
             <input id={"image-" + i} type="text" onChange={e => item.name = e.target.value}/>
             <label htmlFor={"image-" + i}>Condition:</label>

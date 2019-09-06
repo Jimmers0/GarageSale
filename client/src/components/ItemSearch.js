@@ -9,7 +9,7 @@ export default props => {
 
     useEffect(()=> {
         getItemResults(props.match.params.item)
-    }, [])
+    }, [props])
 
     return (
         <div id="itemSearchWrapper">

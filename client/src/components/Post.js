@@ -18,10 +18,10 @@ export default props =>{
         getPosts(props.match.params.id)
         getItems(props.match.params.id)
         checkLogin()
-    },[])
+    },[props])
     useEffect(() => {
         checkIfRated(userDetails[0].id, props.match.params.id)
-    }, [userDetails])
+    }, [props,userDetails])
 
 
     function thumbsUp() {
