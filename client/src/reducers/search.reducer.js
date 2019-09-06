@@ -8,7 +8,6 @@ const initialState = {
   loginResponse: '',
   searchCords: {},
   inventory: [],
-  items: [],
   userDetails: [{id: 0}],
   resultItems: [],
   mySale: [],

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { getInventory, markAsSold } from '../actions/inventory.actions'
+import { markAsSold } from '../actions/inventory.actions'
 import { Button } from 'semantic-ui-react'
 
 export default props => {

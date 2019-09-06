@@ -12,7 +12,6 @@ import Marker from './Marker'
 
 
 export default props => {
-    const [results, setResults] = useState('')
     const [view, setView] = useState('map')
 
     const sales = useSelector(appState => appState.listings)
@@ -24,12 +23,6 @@ export default props => {
         getCords(props.match.params.zip)
         checkLogin()
     }, [props.match.params.zip])
-
-    function checkSales() {
-        if (sales.length === 0) {
-            setResults('There are no garage sales in your area')
-        }
-    }
 
     
 
