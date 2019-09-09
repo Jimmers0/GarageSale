@@ -26,7 +26,7 @@ export default props => {
     },[])
     useEffect (() => {
         
-    getWatchList(userid)
+    getSavedSales(userid)
         
 
     },[loginValid])
@@ -37,8 +37,8 @@ export default props => {
 
     return (
         <div id="listingcontent">
-            <div salespostcontainer="salepostcontainer">
-            {sales.length === 0 ? <div className="error">You have no saved garage sales. Save garage sales for quick access! </div> : sales.map((sale, i) => (
+            <div className="postcontainer">
+            {sales.length === 0 ? <div className="error">You have not saved any garage sales. Save garage sales for quick access! </div> : sales.map((sale, i) => (
                 <Link to={`/post/${sale.postID}`}>
                 <div key={'sale' + i} className="salepost">
                     <div className="nameanddate">

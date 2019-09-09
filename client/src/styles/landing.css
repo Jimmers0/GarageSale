@@ -3,7 +3,10 @@
     min-height: 100%;
     height: 100vh;
     margin: auto;
-    background-color: rgb(99, 99, 99);
+    padding-top: 150px;
+    position: relative;
+    z-index: 3;
+   
 }
 #searchForm {
     display: flex;
@@ -14,8 +17,30 @@
     padding-left: 10px;
     padding-right: 10px;
     text-align: center;
-    color: white;
+    height: 100px;
+    
 }
+
+#search {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-image: url('houses.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 5px 5px 10px grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 2px solid black;
+     
+}
+
+#searchForm:focus {
+    outline: none;
+}
+
 .orText {
     font-size: 35px;
     margin: 0;
@@ -23,15 +48,123 @@
     text-align: center;
     color: rgb(192,7,18);
 }
-#zip {
-    width: 300px;
+#zip1 {
+    width: 250px;
     height: 50px;
     font-size: 25px;
     text-align: center;
     margin-bottom: 10px;
+    border-radius:5px;
+    border: 1px solid white;
+    background:  white;
+    color: gray;
+    position: relative;
+    z-index: 3;
 }
+
+#zip2 {
+    width: 250px;
+    height: 50px;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 10px;
+    border-radius:5px;
+    border: 1px solid white;
+    background:  white;
+    color: gray;
+    position: relative;
+    z-index: 3;
+}
+
 #logo {
     width: 300px;
     height: 300px;
     margin-bottom: -60px;
 }
+
+
+
+.ziptext {
+    color:white;
+    font-size: 20px;
+    font-weight: bolder;
+    margin: 15px;
+    align-self: flex-end;
+    text-align: right;
+    z-index:3;
+}
+
+.itemtext {
+    color:white;
+    font-size: 20px;
+    font-weight: bolder;
+    margin: 15px;
+    position: relative;
+    right: 75px;
+    z-index:3;
+}
+
+*:focus {
+    outline: none;
+}
+
+.button1 {
+    height: 45px;
+    width: 50px;
+    background: black; 
+    padding-left:11px;
+    position: relative;
+    top: -7px;
+    z-index: 3;
+    border: none;
+    border-radius: 5px;
+    
+}
+
+.button2 {
+    height: 45px;
+    width: 50px;
+    background: black; 
+    padding-left:11px;
+    position: relative;
+    top: -7px;
+    z-index: 3;
+    border: none;
+    border-radius: 5px;
+}
+
+.houses {
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    z-index:1;
+    position: relative;
+    box-shadow: 0 0 20px;
+    
+}
+
+.blur {
+    background-size: cover;
+    height: 400px;
+    width: 100%;;
+    z-index: 2;
+    position: relative;
+    top: -400px;
+    
+    
+}
+
+.background {
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    min-width: 375px;
+    
+}
+
+.logo {
+    background:  rgb(255,255,255, 0.3);
+    text-align: center;
+
+}
+
