@@ -7,7 +7,6 @@ import moment from 'moment'
 import { checkLogin, authRedirect } from '../actions/login.actions';
 
 
-
 export default props => {
 
     const sales = useSelector(appState => appState.savedsales)
@@ -20,23 +19,13 @@ export default props => {
 
     useEffect (() => {
         checkLogin()
-    
-        
-
     },[])
     useEffect (() => {
-        
     getSavedSales(userid)
-        
-
     },[loginValid])
 
-
-
-
-
-    return (
-        <div id="listingcontent">
+    return loginValid ?
+        <div className="listingcontent">
             <div className="postcontainer">
             {sales.length === 0 ? <div className="error">You have not saved any garage sales. Save garage sales for quick access! </div> : sales.map((sale, i) => (
                 <Link to={`/post/${sale.postID}`}>
@@ -62,6 +51,6 @@ export default props => {
 
 
         </div>
-    )
+    : <div className="fuckOff"><p>Please login to save garagesales for quick access!</p></div>
 
 }

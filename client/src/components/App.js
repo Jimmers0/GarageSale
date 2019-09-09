@@ -67,13 +67,3 @@ export default props => {
     </Provider>
   )
 }
-
-// Things to look at
-// Need keys for googlemap pins on Listings.js
-// Make the list the default view for listings.js looks better imo
-// make times and days garage sales are open and closed !very important!
-// need to add save garage into posts as well
-// There is a bug where when you click save garage sales it adds that sale more than once i think it happens with saving items to wishlist as well...might be with all the use states or i just messed something up bad
-//when you add a garage sale it asks twice where your location is...
-//adding inventory also adds items to watchlist
-//need to add authroute to watchlist

@@ -72,19 +72,19 @@ return (
     {items.map(item => {
         return (
             <div className="saleItem">
-                    <div className="itemImage">
-                        <img src={item.picture} alt=""/>
+                <div className="itemImage">
+                    <img src={item.picture} alt=""/>
+                </div>
+                <div className="saleiteminfo">
+                    <div className="itemDescription">
+                        <p>{item.item_name}</p>
+                        <p>${Number(item.price).toFixed(2)}</p>
+                        <p>{item.item_condition}</p>
                     </div>
-                    <div className="saleiteminfo">
-                        <div className="itemDescription">
-                            <p>{item.item_name}</p>
-                            <p>${Number(item.price).toFixed(2)}</p>
-                            <p>{item.item_condition}</p>
-                        </div>
-                        <div>
-                            <button className="itembutton" type="button" onClick={watchItem(user, item.id)}>Watch</button>
-                        </div>
+                    <div>
+                        <button className="itembutton" type="button" onClick={watchItem(user, item.id)}>Watch</button>
                     </div>
+                </div>
                 
         </div>
         )

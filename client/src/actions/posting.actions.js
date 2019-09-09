@@ -51,6 +51,7 @@ export function getPosts(id) {
   }
 
   export function watchItem(user_id, item_id){
+    console.log('item id', item_id)
     axios.post('/api/watchitem', {
       user_id: user_id,
       item_id: item_id
