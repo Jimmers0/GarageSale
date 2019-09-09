@@ -14,7 +14,7 @@ export default props => {
     let userid = userDetails[0].id
     const loginValid = useSelector(appState => appState.authRedirect)
     
-    console.log(watchlist)
+    console.log(userid)
 
     useEffect (() => {
         checkLogin()
@@ -29,7 +29,7 @@ export default props => {
 
     },[loginValid])
 
-    return (
+    return loginValid ?
         <div>
         {watchlist.map(item => {
             return (
@@ -46,5 +46,5 @@ export default props => {
             )
         })}
         </div>
-    )
+     : <div className="fuckOff"><p>Please login to use this feature</p></div>
 }

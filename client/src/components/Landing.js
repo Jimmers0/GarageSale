@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Form, Button} from 'semantic-ui-react'
+import {icon} from 'semantic-ui-react'
 import '../styles/landing.css'
 
 export default props => {
@@ -22,7 +22,7 @@ function searchItem() {
                     
                     <div>
                     <input id="zip1" type="text" placeholder="Search using zip" value={zip} onChange={e => setZip(e.target.value)} />
-                    <button className="button1" type="submit" primary><i class="large inverted search icon" color="white"></i></button>
+                    <button className="button1" type="submit" primary><i class="large inverted search icon"></i></button>
                     </div>
                 </form>
                 </div>
