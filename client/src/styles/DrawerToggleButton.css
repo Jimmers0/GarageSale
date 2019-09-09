@@ -1,0 +1,39 @@
+.toggle-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30px;
+    width: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+    z-index: 3;
+  }
+
+  .toggle-button:hover {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30px;
+    width: 30px;
+    background: blue;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+    z-index: 3;
+  }
+  
+  .toggle-button:focus {
+    outline: none;
+  }
+  
+  .toggle-button__line {
+    width: 30px;
+    height: 4px;
+    background: white;
+    border-radius: 20px;
+  }
+  

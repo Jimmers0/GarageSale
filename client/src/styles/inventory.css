@@ -2,16 +2,49 @@ html {box-sizing:border-box;}
 *, *::before, *::after {box-sizing:inherit;}
 
 
-body{
-background: cornflowerblue;
-}
+
 #inventoryImage {
     width: 200px;
-    height: 200px;
+    height: 150px;
 }
 #inventoryWrapper {
-    display: flex;
+    width: 100%;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+h1{
+    color: white;
+}
+
+.inventoryitem{
+    color: black;
+    border: 1px solid white;
+    display: flex;
+    width: 100%;
+    background: rgb(238,241,247);
+    border-bottom: 1px solid lightgray;
+
+
+}
+
+.iteminfo{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.infocontainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+
+}
+
+.sold{
+    color: green;
 }

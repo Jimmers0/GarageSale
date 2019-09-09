@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Autocomplete from 'react-google-autocomplete'
 import {Button, Form} from 'semantic-ui-react'
-import '../styles/post.css'
+import '../styles/Add.css'
 import {createPost} from '../actions/posting.actions'
 import firebase from "firebase"
 import FileUploader from "react-firebase-file-uploader"

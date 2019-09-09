@@ -25,7 +25,7 @@ export default props => {
 
     
 
-   
+   console.log("hi" ,sales)
 
 
     return (
@@ -58,32 +58,40 @@ export default props => {
     
               <div className="salepostcontainer">
               {sales.map((sale, i) => (
-                  <div>
-                  <Link to={`/post/${sale.postID}`}>
                   <div key={'sale' + i} className="salepost">
-                      <div className="nameanddate">
-                      <strong>{sale.name}</strong> {moment(sale.date).format("dddd MM/DD")} 
+                  <Link to={`/post/${sale.postID}`}>
+
+                      <div className="name">
+                        <div className="salename">
+                        {sale.name}
+                        </div>
+                        <div className="spacer"/></div>
+
+                        
+
+
+                      {/* <div className="address">Address: {sale.address}, {sale.city}, {sale.state}.</div> */}
+
+                      <div className="DD">
+                      <p className="distance">{sale.zip === props.match.params.zip ? "In your area" : `Distance: ${sale.distance}` }</p>
+                      <p className="date">{moment(sale.date).format("dddd MM/DD")}</p>
                       </div>
-                      <div>
-                      <p>City: {sale.city} State: {sale.state}</p>
-                      </div> 
-                      <div>
-                      <p>{sale.zip === props.match.params.zip ? "In your area" : `Distance: ${sale.distance}` }</p>
-                      <p>Address: {sale.address}</p>
-                      </div>
-  
+
+                      </Link>
+
+                      {userDetails.length > 0 ?  <div>Save Sale {' '}
+                  
+                  <Button icon type="submit" size="small" color="red" onClick={e => saveSale(userDetails[0].id, sale.postID)}>
+                  <Icon name='black crosshairs' />
+                  </Button></div> : ""}
   
                   </div>
-                  </Link>
-                  {userDetails.length > 0 ?  <div>Save Sale {' '}
                   
-                  <Button icon type="submit" size="small" color="black" onClick={e => saveSale(userDetails[0].id, sale.postID)}>
-                  <Icon name='crosshairs' />t n
-                  </Button></div> : ""}
+                  
   
                  
               
-              </div>
+           
               ))} 
   
              

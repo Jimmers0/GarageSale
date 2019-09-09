@@ -1,98 +1,12 @@
-.salepostcontainer {
-    text-align: center; 
-    min-height: 100%;
-    height: 100vh;
 
-    
-    
-}
-#listingContent {
-    width: 100%;
-    min-height: 100%;
-    height: 100%;
-    background-color: rgb(99,99,99);
-    
+.error {
+    color: white;
 }
 
 .salepost {
-    position: relative;
-    background: rgb(211, 211, 211, .6);
-    margin: 5px 10px 5px 10px;
-    border-radius: 10px;
-    padding: 5px;
-    text-align: center;
-    
-}
-#markerPin {
-    width: 60px;
-    height: 60px;
-}
-#map {
-    width: 100%;
-    height: 620px;
-}
-#viewOptions {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 8vh;
-}
-#viewOptions button {
-    border: 1px solid black;
-    background-color: rgb(27,28,29);
-    color: white;
-    margin: 10px;
-}
-#marker {
-    width: 60px;
-    height: 60px;
-    color: white;
-    font-size: 14px;
-    border-radius: 200px;
-    line-height: 60px;
-    text-align: center;
-}
-.info {
-    width: 300px;
-    min-height: 100%;
-    margin-top: -30px;
-    background-color: white;
-    color: black;
-}
-.hide {
-    display: none;
-}
-
-.salepost:hover {
-    background: transparent;
-    margin: 5px 10px 5px 10px;
-    border-radius: 10px;
-    border: 1px solid rgb(211, 211, 211, .6);
-    
-}
-
-a {
-    text-decoration: none;
     color: black;
 }
 
-.t {
-    height: 550px;
-    width: 100%;
-}
-
-.error {
-    width: 200px;
-    margin: auto;
-    text-align: center;
-    font-weight: 600;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-body {
-    background: rgb(99,99,99);
-}
-
-.container {
-    padding-top: 40px;
+.listingcontent{
+    color: black;
 }

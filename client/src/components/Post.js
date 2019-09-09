@@ -1,7 +1,7 @@
 import React, {useEffect } from 'react'
 import {useSelector} from 'react-redux'
 import {getPosts, getItems, ratePost, checkIfRated, watchItem} from '../actions/posting.actions'
-import '../styles/garageView.css'
+import '../styles/Post.css'
 import moment from 'moment'
 import { checkLogin } from '../actions/login.actions'
 
@@ -26,6 +26,7 @@ export default props =>{
 
     let user = userDetails[0].id
     console.log('postid', user)
+    console.log(items)
 
     function thumbsUp() {
         if (!loginValid) {
@@ -61,17 +62,20 @@ return (
     {items.map(item => {
         return (
             <div className="saleItem">
-            <div className="itemImage">
-                <img src={item.picture} alt=""/>
-            </div>
-            <div className="itemDescription">
-                <p>{item.name}</p>
-                <p>${Number(item.price).toFixed(2)}</p>
-                <p>{item.condition}</p>
-            </div>
-            <div>
-                <button type="button" onClick={watchItem(user, item.id)}>Watch</button>
-            </div>
+                    <div className="itemImage">
+                        <img src={item.picture} alt=""/>
+                    </div>
+                    <div className="saleiteminfo">
+                        <div className="itemDescription">
+                            <p>{item.item_name}</p>
+                            <p>${Number(item.price).toFixed(2)}</p>
+                            <p>{item.item_condition}</p>
+                        </div>
+                        <div>
+                            <button className="itembutton" type="button" onClick={watchItem(user, item.id)}>Watch</button>
+                        </div>
+                    </div>
+                
         </div>
         )
     })}
