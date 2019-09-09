@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import { useSelector } from 'react-redux'
 import { getMySale } from '../actions/landing.actions'
-import '../styles/Post.css'
+import '../styles/post.css'
 import moment from 'moment'
 import {Link} from 'react-router-dom'
 
