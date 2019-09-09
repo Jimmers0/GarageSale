@@ -114,8 +114,8 @@ router.post('/createPost', (req, res, next) => {
     const lat = resp.data.results[0].geometry.location.lat
     const lng = resp.data.results[0].geometry.location.lng
     var id = shortid.generate()
-    const sql = `INSERT INTO posts (name, date, active, user_id, zip, city, state, address, postID, lat, lng) VALUES (?,?,?,?,?,?,?,?,?,?,?)`
-    conn.query(sql, [req.body.name, req.body.date, true, req.body.user_id, req.body.zip, req.body.city, req.body.state, req.body.address, id, lat, lng, req.body.id], (err, result, fields) => {
+    const sql = `INSERT INTO posts (name, date, active, user_id, zip, city, state, address, postID, lat, lng, from_time, to_time) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`
+    conn.query(sql, [req.body.name, req.body.date, true, req.body.user_id, req.body.zip, req.body.city, req.body.state, req.body.address, id, lat, lng, req.body.id, req.body.from_time, req.body.to_time], (err, result, fields) => {
       req.body.images.forEach(item => {
         const imageSQL = 'INSERT into items (item_name, item_condition, price, picture, post_id, user_id) VALUES (?,?,?,?,?,?)'
         conn.query(imageSQL, [item.name, item.condition, item.price, item.url, id, req.body.user_id], (err, result, fields) => {
@@ -198,6 +198,12 @@ router.get('/markAsSold', (req, res, next) => {
   conn.query(sql, [req.query.id], (err, results, fields) => {
     console.log(err)
     console.log(results)
+    res.json(results)
+  })
+})
+router.get('/getProfile', (req, res, next) => {
+  const sql = `SELECT * FROM users WHERE id = ?`
+  conn.query(sql, [req.query.id], (err, results, fields) => {
     res.json(results)
   })
 })

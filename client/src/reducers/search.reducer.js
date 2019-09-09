@@ -12,7 +12,8 @@ const initialState = {
   resultItems: [],
   mySale: [],
   checkRate: [],
-  watchlist: []
+  watchlist: [],
+  profile: []
 }
 
 export default function(state = initialState, action) {
@@ -48,6 +49,8 @@ export default function(state = initialState, action) {
       return {...state, checkRate: action.payload}
     case "MARK_SOLD":
       return {...state, inventory: [...state.inventory]}
+    case "PROFILE":
+      return {...state, profile: action.payload}
     default:
       return state
   }

@@ -30,7 +30,7 @@ function searchItem() {
                 <form id="searchForm" onSubmit={searchItem}>
                     <div>
                     <input id="zip2" type="text" value={item} placeholder="Search for item" onChange={e => setItem(e.target.value)} />
-                    <button className="button2" type="submit" secondary><i class="large inverted search icon" color="white"></i></button>
+                    <button className="button2" type="submit"><i className="large inverted search icon" color="white"></i></button>
                    </div>
                 </form>
                 </div>

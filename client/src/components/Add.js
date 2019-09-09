@@ -28,6 +28,8 @@ export default props => {
     const [isUploading, setIsUploading] = useState(false)
     const [images, setImages] = useState([])
     const [fileName, setFileName] = useState('')
+    const [fromTime, setFromTime] = useState(0)
+    const [toTime, setToTime] = useState(0)
 
     const loginValid = useSelector(appState => appState.authRedirect)
     const userDetails = useSelector(appState => appState.userDetails)
@@ -37,7 +39,7 @@ export default props => {
     }, [])
 
     function addPost() {
-        createPost(name, city, state, zip, address, date, images, userDetails[0].id)
+        createPost(name, city, state, zip, address, date, images, userDetails[0].id, fromTime, toTime)
         setResults('Your garage sale has been successfully added to our system!')
         setCity('')
         setState('')
@@ -91,11 +93,12 @@ export default props => {
     componentRestrictions={{country: "us"}}
 />
 <input type="date" onChange={e => setDate(e.target.value)}/>
+<label htmlFor="fromTime" className="timeLabel">From Time:</label>
+<input type="time" id="fromTime" onChange={e => setFromTime(e.target.value)}/>
+<label htmlFor="toTime" className="timeLabel">To Time:</label>
+<input type="time" id="toTime" onChange={e => setToTime(e.target.value)}/>
 <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Name of Garage Sale"/>
-<input type="text" value={address} placeholder="Address" onChange={e => setAddress(e.target.value)}></input>
-<input type="text" value={city} placeholder="City" onChange={e => setCity(e.target.value)}></input>
-<input type="text" value={state} placeholder="State" onChange={e => setState(e.target.value)}></input>
-<input type="text" value={zip} placeholder="Zip" onChange={e => setZip(e.target.value)}></input>
+<label className="timeLabel">Add items by uploading an image of your item</label>
 <FileUploader
             accept="image/*"
             name="garagesaleimage"

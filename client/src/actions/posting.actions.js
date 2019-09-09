@@ -65,7 +65,7 @@ export function sendPost(Id){
     })
   }
 
-export function createPost(name, city, state, zip, address, date, images, id) {
+export function createPost(name, city, state, zip, address, date, images, id, fromTime, toTime) {
   axios.post('/api/createPost', {
     name: name,
     city: city,
@@ -74,7 +74,9 @@ export function createPost(name, city, state, zip, address, date, images, id) {
     address: address,
     date: date,
     images: images,
-    user_id: id
+    user_id: id,
+    from_time: fromTime,
+    to_time: toTime
   }).then(resp => {
   })
 }
