@@ -4,6 +4,7 @@ import '../styles/Login.css'
 import { login } from '../actions/login.actions'
 import { useSelector } from 'react-redux'
 import { checkLogin } from '../actions/login.actions'
+import { Button, Icon } from 'semantic-ui-react'
 
 
 
@@ -28,7 +29,7 @@ return loginValid ? <div className="fuckOff"><p>You are already logged in!</p></
    <div id="container1">
 
      <div className="title">
-     <h2>Login</h2>
+     <h2 className="log">Login</h2>
 
      </div>
      <div className="loginResponse">
@@ -63,8 +64,12 @@ return loginValid ? <div className="fuckOff"><p>You are already logged in!</p></
        
       
       <div className="submit">
-      <button onClick={signIn}>Sign In</button>
-      <button onClick={sendRegister}>Register</button>
+      <button class="ui blue button" onClick={signIn}>Sign In</button>
+      <div className="registerline">
+       <div>Don't have an account?</div>
+       <div color="blue" className="clickreg" onClick={sendRegister}>Register</div>
+      </div>
+      
       </div>
      
       

@@ -19,15 +19,14 @@ export default props => {
   }
 
     return(
+		<div className="regcontainer">
           <form onSubmit={sendRegister} className="registerForm">
-            <h1>Register</h1>
-            <label htmlFor="username">Username:</label>
+            <h2 className="reglogo">Register</h2>
             <input className="registerInput" value={username} id="username" type="text" placeholder="Username" onChange={e=>setUsername(e.target.value)}/>
-            <label htmlFor="password">Password:</label>
             <input className="registerInput" value={password} id="password" type="password" placeholder="Password" onChange={e=>setPassword(e.target.value)}/>
-            <input type="text" placeholder="First Name" onChange={e => setFname(e.target.value)}/>
-            <input type="text" placeholder="Last Name" onChange={e => setLname(e.target.value)}/>
-            <input type="text" placeholder="City" onChange={e => setCity(e.target.value)}/>
+            <input className="registerInput" type="text" placeholder="First Name" onChange={e => setFname(e.target.value)}/>
+            <input className="registerInput" type="text" placeholder="Last Name" onChange={e => setLname(e.target.value)}/>
+            <input className="registerInput" type="text" placeholder="City" onChange={e => setCity(e.target.value)}/>
             <select onChange={e => setState(e.target.value)}>
               <option value="default">Select your State</option>
             <option value="AL">Alabama</option>
@@ -84,5 +83,6 @@ export default props => {
             </select>
             <Button className="submitButton" primary type="submit">Register</Button>
           </form>
+		  </div>
     )
 }
