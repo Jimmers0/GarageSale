@@ -17,12 +17,10 @@ export default props=> {
         getInventory(userDetails[0].id)
     }, [userDetails])
     
-return (
+return loginValid ?
         <div id="inventoryWrapper">
             <h1>My Inventory</h1>
-            {loginValid ? 
-            
-            
+
             <div id="inventoryItems">
                 {Inventories.map(item => {
                     return (
@@ -34,10 +32,11 @@ return (
             
             
             
+          
             
             
             
-            : <p>Please login to view this page</p>}
         </div>
-)
+            : <div className="fuckOff"><p>Please login to use this feature</p></div>
+
 }
