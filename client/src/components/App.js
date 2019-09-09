@@ -18,6 +18,7 @@ import Register from './Register'
 import ItemSearch from './ItemSearch.js'
 import DrawerToggleButton from './drawerToggleButton'
 import SideDrawer from './sideDrawer'
+import Profile from './Profile'
 
 
 export default props => {
@@ -57,6 +58,7 @@ export default props => {
                   <Route path="/login" component={Login}/>
                   <Route path="/register" component={Register}/>
                   <Route path="/items/:item" component={ItemSearch}/>
+                  <Route path="/profile/:id" component={Profile}/>
         </div>
           
         </main>

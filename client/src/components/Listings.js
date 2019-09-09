@@ -12,7 +12,7 @@ import Marker from './Marker'
 
 
 export default props => {
-    const [view, setView] = useState('map')
+    const [view, setView] = useState('list')
 
     const sales = useSelector(appState => appState.listings)
     const coords = useSelector(appState => appState.searchCords)
@@ -41,9 +41,9 @@ export default props => {
               center={coords}
               defaultZoom={14}
             >
-                {sales.map(item => {
+                {sales.map((item,i) => {
                     return (
-                        <Marker
+                        <Marker key={i}
                         lat={item.lat}
                         lng={item.lng}
                         text="GS"
@@ -59,31 +59,21 @@ export default props => {
               <div className="salepostcontainer">
               {sales.map((sale, i) => (
                   <div key={'sale' + i} className="salepost">
-                  <Link to={`/post/${sale.postID}`}>
-
-                      <div className="name">
-                        <div className="salename">
-                        {sale.name}
-                        </div>
-                        <div className="spacer"/></div>
-
-                        
-
-
-                      {/* <div className="address">Address: {sale.address}, {sale.city}, {sale.state}.</div> */}
-
-                      <div className="DD">
-                      <p className="distance">{sale.zip === props.match.params.zip ? "In your area" : `Distance: ${sale.distance}` }</p>
-                      <p className="date">{moment(sale.date).format("dddd MM/DD")}</p>
-                      </div>
-
-                      </Link>
-
-                      {userDetails.length > 0 ?  <div>Save Sale {' '}
-                  
-                  <Button icon type="submit" size="small" color="red" onClick={e => saveSale(userDetails[0].id, sale.postID)}>
-                  <Icon name='black crosshairs' />
+                    <h1>{sale.address}</h1>
+                    <p>{sale.city}, {sale.state} {sale.zip}</p>
+                    <p>Phone: (702) 937-8875</p>
+                    <p>Disance: {sale.distance} (About {sale.duration} away from your area)</p>
+                    <p>Date and Time: {moment(sale.date).format("dddd MM/DD")} from 10:00AM to 6:00PM</p>
+                    <div id="buttons">
+                    <Link to={`/post/${sale.postID}`}>
+                    <Button size="small" primary>View More</Button>
+                  </Link>                  
+                  {userDetails.length > 0 ?
+                  <div id="saveButton">
+                  <Button size="small" color="red" onClick={e => saveSale(userDetails[0].id, sale.postID)}>
+                  Save Sale
                   </Button></div> : ""}
+                    </div>
   
                   </div>
                   
