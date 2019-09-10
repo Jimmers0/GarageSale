@@ -1,0 +1,28 @@
+#profileWrapper {
+    width: 100vw;
+    height: 100vh;
+}
+#profileHeader {
+    width: 100vw;
+    height: 250px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#profileLeft {
+    display: flex;
+}
+#profileImage {
+    margin-right: 15px;
+}
+#profileDetails {
+    color: white;
+}
+p {
+    margin: 0;
+    padding: 0;
+}
+#previousSales h1 {
+    text-align: center;
+}
