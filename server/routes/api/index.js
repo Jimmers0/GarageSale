@@ -8,7 +8,19 @@ const config = require('config')
 
 
 
+function compare(a, b) {
+  // Use toUpperCase() to ignore character casing
+  const genreA = a.distance;
+  const genreB = b.distance;
 
+  let comparison = 0;
+  if (genreA > genreB) {
+    comparison = 1;
+  } else if (genreA < genreB) {
+    comparison = -1;
+  }
+  return comparison;
+}
 
 let finalObj = []
 router.get('/getPosts/:zip', (req, res, next) => {
@@ -17,11 +29,19 @@ router.get('/getPosts/:zip', (req, res, next) => {
     let processed = 0
     result.forEach(element => {
       axios.get(`https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${req.params.zip}&destinations=${element.zip}&key=AIzaSyC8cLGX-N6A6ramMmRMgKK07-TR-rlh5sA`).then(resp => {
-        element.distance = resp.data.rows[0].elements[0].distance.text
+        element.distance = resp.data.rows[0].elements[0].distance.text.replace(" ft", "").replace(" mi", "")
         element.duration = resp.data.rows[0].elements[0].duration.text
         finalObj.push(element)
         processed++
         if (processed === result.length) {
+          finalObj.sort((a,b) => {
+            if (a.distance > b.distance) {
+              console.log("One")
+              return 1
+            } else {
+              return -1
+            }
+          })
           res.json(finalObj)
           finalObj = []
         }
@@ -202,7 +222,10 @@ router.get('/markAsSold', (req, res, next) => {
   })
 })
 router.get('/getProfile', (req, res, next) => {
-  const sql = `SELECT * FROM users WHERE id = ?`
+  const sql = `SELECT users.*, posts.*
+  FROM users
+  JOIN posts
+  ON posts.user_id = ? AND users.id = posts.user_id`
   conn.query(sql, [req.query.id], (err, results, fields) => {
     res.json(results)
   })

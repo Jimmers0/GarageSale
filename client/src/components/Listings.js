@@ -67,7 +67,7 @@ export default props => {
                     <div id="buttons">
                     <Link to={`/post/${sale.postID}`}>
                     <Button size="small" primary>View More</Button>
-                  </Link>                  
+                  </Link>
                   {userDetails.length > 0 ?
                   <div id="saveButton">
                   <Button size="small" color="red" onClick={e => saveSale(userDetails[0].id, sale.postID)}>
