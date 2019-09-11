@@ -85,6 +85,7 @@ export function ratePost(user_id, post_id, rating) {
     post_id: post_id,
     rating: rating
   }).then(resp => {
+    checkIfRated(user_id, post_id)
   })
 }
 export function checkIfRated(user_id, post_id) {

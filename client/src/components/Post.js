@@ -42,25 +42,25 @@ export default props =>{
             ratePost(userDetails[0].id, props.match.params.id, 0)
         }
     }
+    function watchItems(user, item) {
+        watchItem(user, item)
+    }
 return (
     <div id="garageViewWrapper">
         {post.map(item => {
             return (
                 <div id="garageDescription">
-                <h1>{item.name}</h1>
-                <p>Location: {item.address}</p>
-                <p>Date: {moment(item.date).format("dddd MM/DD")}</p>
-                <p>Time: 11:00AM - 6:00PM</p>
+                <h1>{item.address}</h1>
+                <h3>Date: {moment(item.date).format("dddd MM/DD")}</h3>
+                <h3>Time: 11:00AM - 6:00PM</h3>
                 <Link className="profileLink" to={"/profile/" + item.user_id}>View poster profile</Link>
                 <p>Thumbs Up: {checkRate.filter(item => item.rating < 1).length}</p>
                 <p>Thumbs Up: {checkRate.filter(item => item.rating > 0).length}</p>
-                {checkRate.length > 0 ? "" : <div>                <button onClick={thumbsUp}>Thumbs Up</button>
-                <button onClick={thumbsDown}>Thumbs Down</button></div>}
-                {userDetails.length > 0 ?  <div>Save Sale {' '}
-                  
-                  <Button icon type="submit" size="small" color="red" onClick={e => saveSale(userDetails[0].id, item.postID)}>
-                  <Icon name='black crosshairs' />
-                  </Button></div> : ""}
+                {checkRate.length > 0 ? "" : <div><Button onClick={thumbsUp}><Icon color="red" style={{fontWeight: "600"}} name="thumbs down outline"/></Button>
+                <Button onClick={thumbsDown}><Icon tyle={{fontWeight: "600"}} color="green" name="thumbs up outline"/></Button></div>}
+                {userDetails.length > 0 ? <Button size="small" color="red" id="saveButtonPost" type="submit" onClick={e => saveSale(userDetails[0].id, item.postID)}>
+                  Save
+                  </Button> : ""}
                 </div>
             )
         })}
@@ -80,7 +80,7 @@ return (
                         <p>{item.item_condition}</p>
                     </div>
                     <div>
-                        <button className="itembutton" type="button" onClick={e => watchItem(user, item.id)}>Watch</button>
+                        <button className="itembutton" type="button" onClick={e => watchItems(user, item.id)}>Watch</button>
                     </div>
                 </div>
                 
