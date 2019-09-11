@@ -22,10 +22,8 @@ export default props =>{
     useEffect (() => {
         getPosts(props.match.params.id)
         getItems(props.match.params.id)
-    },[props])
-    useEffect(() => {
         checkIfRated(userDetails[0].id, props.match.params.id)
-    }, [props,userDetails])
+    },[props])
 
     let user = userDetails[0].id
     console.log(checkRate)
@@ -82,7 +80,7 @@ return (
                         <p>{item.item_condition}</p>
                     </div>
                     <div>
-                        <button className="itembutton" type="button" onClick={watchItem(user, item.id)}>Watch</button>
+                        <button className="itembutton" type="button" onClick={e => watchItem(user, item.id)}>Watch</button>
                     </div>
                 </div>
                 

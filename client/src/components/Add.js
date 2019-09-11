@@ -22,7 +22,6 @@ export default props => {
     const [zip, setZip] = useState('')
     const [address, setAddress] = useState('')
     const [date, setDate] = useState('')
-    const [name, setName] = useState('')
     const [results, setResults] = useState('')
     const [button, setButton] = useState(false)
     const [isUploading, setIsUploading] = useState(false)
@@ -39,14 +38,13 @@ export default props => {
     }, [])
 
     function addPost() {
-        createPost(name, city, state, zip, address, date, images, userDetails[0].id, fromTime, toTime)
+        createPost(city, state, zip, address, date, images, userDetails[0].id, fromTime, toTime)
         setResults('Your garage sale has been successfully added to our system!')
         setCity('')
         setState('')
         setZip('')
         setAddress('')
         setDate('')
-        setName('')
         setButton(true)
         setImages([])
     }
@@ -97,7 +95,6 @@ export default props => {
 <input type="time" id="fromTime" onChange={e => setFromTime(e.target.value)}/>
 <label htmlFor="toTime" className="timeLabel">To Time:</label>
 <input type="time" id="toTime" onChange={e => setToTime(e.target.value)}/>
-<input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Name of Garage Sale"/>
 <label className="timeLabel">Add items by uploading an image of your item</label>
 <FileUploader
             accept="image/*"
@@ -115,11 +112,11 @@ export default props => {
         return(
             <div id="singleImage">
             <img alt="" src={item.url}></img>
-            <label htmlFor={"image-" + i}>Name:</label>
+            <label htmlFor={"image-" + i} className="timeLabel">Name:</label>
             <input id={"image-" + i} type="text" onChange={e => item.name = e.target.value}/>
-            <label htmlFor={"image-" + i}>Condition:</label>
+            <label htmlFor={"image-" + i} className="timeLabel">Condition:</label>
             <input id={"image-" + i} type="text" onChange={e => item.condition = e.target.value}/>
-            <label htmlFor={"image-" + i}>Price:</label>
+            <label htmlFor={"image-" + i} className="timeLabel">Price:</label>
             <input id={"image-" + i} type="text" onChange={e => item.price = e.target.value}/>
             </div>
         )

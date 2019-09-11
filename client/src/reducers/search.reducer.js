@@ -8,7 +8,7 @@ const initialState = {
   loginResponse: '',
   searchCords: {},
   inventory: [],
-  userDetails: [{id: 0}],
+  userDetails: [{id: localStorage.getItem("user") ? localStorage.getItem("user") : 0}],
   resultItems: [],
   mySale: [],
   checkRate: [],

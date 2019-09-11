@@ -15,7 +15,9 @@ if(localStorage.getItem('token')){
 export function checkLogin() {
     if (localStorage.getItem('token')) {
         axios.get('/api/checkValids').then(resp => {
+            console.log(resp.data)
             if (resp.data.validated) {
+                localStorage.setItem("user", resp.data.id)
                 store.dispatch({
                     type: "INVALID_REDIRECT",
                     payload: resp.data
