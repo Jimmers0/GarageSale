@@ -77,6 +77,7 @@ export function createPost(city, state, zip, address, date, images, id, fromTime
     from_time: fromTime,
     to_time: toTime
   }).then(resp => {
+    console.log(resp.data)
   })
 }
 export function ratePost(user_id, post_id, rating) {
