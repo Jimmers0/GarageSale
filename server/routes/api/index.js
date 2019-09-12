@@ -220,5 +220,11 @@ router.get('/getProfile', (req, res, next) => {
     res.json(results)
   })
 })
+router.get('/removeWatchItem', (req, res, next) => {
+  const sql = `DELETE FROM watchlist WHERE id = ?`
+  conn.query(sql, [req.query.id], (err, results, fields) => {
+    res.json(results)
+  })
+})
 
 module.exports = router
