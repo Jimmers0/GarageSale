@@ -35,13 +35,17 @@ export default props => {
                     <img src={item.picture} alt=""/>
                 </div>
                 <div className="itemDescription">
-                    <p>{item.name}</p>
+                    <p>{item.item_name}</p>
                     <p>${Number(item.price).toFixed(2)}</p>
+
+        
+
                     <p>{item.condition}</p>
                     <p>{item.sold === 1 ? <div>Sold</div>: ''}</p>
                     <div id="removeWatch">
                         <Button color="red" size="tiny" onClick={e => removeWatchItem(item.id)}>Remove</Button>
                     </div>
+
                 </div>
             </div>
             )
