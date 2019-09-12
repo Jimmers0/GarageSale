@@ -29,19 +29,11 @@ router.get('/getPosts/:zip', (req, res, next) => {
     let processed = 0
     result.forEach(element => {
       axios.get(`https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${req.params.zip}&destinations=${element.zip}&key=AIzaSyC8cLGX-N6A6ramMmRMgKK07-TR-rlh5sA`).then(resp => {
-        element.distance = resp.data.rows[0].elements[0].distance.text.replace(" ft", "").replace(" mi", "")
+        element.distance = resp.data.rows[0].elements[0].distance.text
         element.duration = resp.data.rows[0].elements[0].duration.text
         finalObj.push(element)
         processed++
         if (processed === result.length) {
-          finalObj.sort((a,b) => {
-            if (a.distance > b.distance) {
-              console.log("One")
-              return 1
-            } else {
-              return -1
-            }
-          })
           res.json(finalObj)
           finalObj = []
         }
@@ -134,15 +126,15 @@ router.post('/createPost', (req, res, next) => {
     const lat = resp.data.results[0].geometry.location.lat
     const lng = resp.data.results[0].geometry.location.lng
     var id = shortid.generate()
-    const sql = `INSERT INTO posts (date, active, user_id, zip, city, state, address, postID, lat, lng, from_time, to_time) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`
-    conn.query(sql, [req.body.date, true, req.body.user_id, req.body.zip, req.body.city, req.body.state, req.body.address, id, lat, lng, req.body.id, req.body.from_time, req.body.to_time], (err, result, fields) => {
+    const sql = `INSERT INTO posts (from_time, to_time, date, active, user_id, zip, city, state, address, postID, lat, lng) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`
+    conn.query(sql, [req.body.from_time, req.body.to_time, req.body.date, true, req.body.user_id, req.body.zip, req.body.city, req.body.state, req.body.address, id, lat, lng, req.body.id], (err, result, fields) => {
       req.body.images.forEach(item => {
         const imageSQL = 'INSERT into items (item_name, item_condition, price, picture, post_id, user_id) VALUES (?,?,?,?,?,?)'
         conn.query(imageSQL, [item.name, item.condition, item.price, item.url, id, req.body.user_id], (err, result, fields) => {
           
         })
       })
-      res.json({id: id})
+      res.json(req.body)
     })
   })
 })

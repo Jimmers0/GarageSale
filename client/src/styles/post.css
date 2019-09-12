@@ -44,6 +44,16 @@
     color: black;
 }
 .profileLink {
+    width: 100px;
+    height: 30px;
     color: white;
     text-align: center;
+    background-color: blue;
+}
+#garageDescription h1, h3 {
+    margin: 0;
+    padding: 0;
+}
+#saveButtonPost {
+    margin-top: 10px;
 }
