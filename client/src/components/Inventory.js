@@ -22,7 +22,7 @@ return loginValid ?
             <h1>My Inventory</h1>
 
             <div id="inventoryItems">
-                {Inventories.map(item => {
+                {Inventories.length === 0 ? <div className="sentence">You have no items in your inventory</div> : Inventories.map(item => {
                     return (
                         <InventoryItem item={item}/>
                     )

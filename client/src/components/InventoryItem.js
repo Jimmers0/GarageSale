@@ -19,7 +19,7 @@ export default props => {
         <div className="iteminfo">
             <div>{props.item.item_name}</div>
             <div>Condition: {props.item.item_condition}</div>
-            <div>Price: {props.item.price}</div>
+            <div>Price: ${props.item.price}</div>
         </div>
         <div>
         {props.item.sold > 0 ? <div className="sold">SOLD</div> : <div><Link to="/myinventory"><Button onClick={e => mark(props.item.id)} disabled={button} color="red">Mark as Sold</Button></Link></div>}
