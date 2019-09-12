@@ -52,10 +52,10 @@ return (
                 <div id="garageDescription">
                 <h1>{item.address}</h1>
                 <h3>Date: {moment(item.date).format("dddd MM/DD")}</h3>
-                <h3>Time: 11:00AM - 6:00PM</h3>
+                <h3>Time: {item.from_time} - {item.to_time}</h3>
                 <Link className="profileLink" to={"/profile/" + item.user_id}>View poster profile</Link>
-                <p>Thumbs Up: {checkRate.filter(item => item.rating < 1).length}</p>
-                <p>Thumbs Up: {checkRate.filter(item => item.rating > 0).length}</p>
+                <p><Icon color="green" name="thumbs up outline"/> {checkRate.filter(item => item.rating < 1).length}</p>
+                <p><Icon color="red" name="thumbs down outline"/> {checkRate.filter(item => item.rating > 0).length}</p>
                 {checkRate.length > 0 ? "" : <div><Button onClick={thumbsUp}><Icon color="red" style={{fontWeight: "600"}} name="thumbs down outline"/></Button>
                 <Button onClick={thumbsDown}><Icon tyle={{fontWeight: "600"}} color="green" name="thumbs up outline"/></Button></div>}
                 {userDetails.length > 0 ? <Button size="small" color="red" id="saveButtonPost" type="submit" onClick={e => saveSale(userDetails[0].id, item.postID)}>

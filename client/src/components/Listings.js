@@ -63,7 +63,7 @@ export default props => {
                     <p>{sale.city}, {sale.state} {sale.zip}</p>
                     <p>Phone: (702) 937-8875</p>
                     <p>Disance: {sale.distance} (About {sale.duration} away from your area)</p>
-                    <p>Date and Time: {moment(sale.date).format("dddd MM/DD")} from 10:00AM to 6:00PM</p>
+                    <p>Date and Time: {moment(sale.date).format("dddd MM/DD")} from {sale.from_time} - {sale.to_time}</p>
                     <div id="buttons">
                     <Link to={`/post/${sale.postID}`}>
                     <Button size="small" primary>View More</Button>
