@@ -78,6 +78,7 @@ return (
                         <p>{item.item_name}</p>
                         <p>${Number(item.price).toFixed(2)}</p>
                         <p>{item.item_condition}</p>
+                        <p>{item.sold === 1 ? <div>Sold</div>: ''}</p>
                     </div>
                     <div>
                         <button className="itembutton" type="button" onClick={e => watchItems(user, item.id)}>Watch</button>

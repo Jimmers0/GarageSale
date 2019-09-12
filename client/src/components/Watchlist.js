@@ -41,6 +41,7 @@ export default props => {
                     <p>{item.name}</p>
                     <p>${Number(item.price).toFixed(2)}</p>
                     <p>{item.condition}</p>
+                    <p>{item.sold === 1 ? <div>Sold</div>: ''}</p>
                 </div>
             </div>
             )
