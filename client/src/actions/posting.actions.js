@@ -101,3 +101,8 @@ export function checkIfRated(user_id, post_id) {
     })
   })
 }
+export function removeWatchItem(id) {
+  axios.get('/api/removeWatchItem?id=' + id).then(resp => {
+    getWatchList()
+  })
+}
