@@ -1,11 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import { useSelector } from 'react-redux'
-import { getWatchList } from '../actions/posting.actions'
+import { getWatchList, removeWatchItem } from '../actions/posting.actions'
 import { checkLogin} from '../actions/login.actions';
-
-
-
-
+import { Button } from 'semantic-ui-react'
 
 export default props => {
 
@@ -14,7 +11,7 @@ export default props => {
     let userid = userDetails[0].id
     const loginValid = useSelector(appState => appState.authRedirect)
     
-    console.log(userid)
+    console.log(watchlist)
 
     useEffect (() => {
         checkLogin()
@@ -40,8 +37,15 @@ export default props => {
                 <div className="itemDescription">
                     <p>{item.item_name}</p>
                     <p>${Number(item.price).toFixed(2)}</p>
-                    <p>{item.item_condition}</p>
-                    <p>{item.sold === 1 ? <div className="sold">Sold</div>: ''}</p>
+
+        
+
+                    <p>{item.condition}</p>
+                    <p>{item.sold === 1 ? <div>Sold</div>: ''}</p>
+                    <div id="removeWatch">
+                        <Button color="red" size="tiny" onClick={e => removeWatchItem(item.id)}>Remove</Button>
+                    </div>
+
                 </div>
             </div>
             )
