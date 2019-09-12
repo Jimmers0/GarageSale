@@ -38,10 +38,10 @@ export default props => {
                     <img src={item.picture} alt=""/>
                 </div>
                 <div className="itemDescription">
-                    <p>{item.name}</p>
+                    <p>{item.item_name}</p>
                     <p>${Number(item.price).toFixed(2)}</p>
-                    <p>{item.condition}</p>
-                    <p>{item.sold === 1 ? <div>Sold</div>: ''}</p>
+                    <p>{item.item_condition}</p>
+                    <p>{item.sold === 1 ? <div className="sold">Sold</div>: ''}</p>
                 </div>
             </div>
             )
