@@ -43,7 +43,7 @@ export default props => {
                     <p>{item.condition}</p>
                     <p>{item.sold === 1 ? <div>Sold</div>: ''}</p>
                     <div id="removeWatch">
-                        <Button color="red" size="tiny" onClick={e => removeWatchItem(item.id)}>Remove</Button>
+                        <Button color="red" size="tiny" onClick={e => removeWatchItem(item.id, userid)}>Remove</Button>
                     </div>
 
                 </div>
