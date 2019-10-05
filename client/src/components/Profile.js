@@ -12,7 +12,7 @@ export default props => {
 
     useEffect(() => {
         grabProfileDetails(props.match.params.id)
-    }, [])
+    }, [props.match.params.id])
     console.log(profileDetails)
 
     return profileDetails.length > 0 ?

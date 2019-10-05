@@ -3,9 +3,8 @@ import {useSelector} from 'react-redux'
 import {getPosts, getItems, ratePost, checkIfRated, watchItem} from '../actions/posting.actions'
 import '../styles/post.css'
 import moment from 'moment'
-import { checkLogin } from '../actions/login.actions'
 import { saveSale } from '../actions/posting.actions'
-import {Button, Form, Icon} from 'semantic-ui-react'
+import {Button, Icon} from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 
@@ -23,7 +22,7 @@ export default props =>{
         getPosts(props.match.params.id)
         getItems(props.match.params.id)
         checkIfRated(userDetails[0].id, props.match.params.id)
-    },[props])
+    },[props, userDetails])
 
     let user = userDetails[0].id
     console.log(checkRate)

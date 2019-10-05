@@ -3,10 +3,9 @@ import '../styles/Listings.css'
 import { useSelector } from 'react-redux'
 import { grabPosts, getCords } from '../actions/landing.actions'
 import { saveSale } from '../actions/posting.actions'
-import { checkLogin } from '../actions/login.actions'
 import moment from 'moment'
 import {Link} from 'react-router-dom'
-import { Button, Icon } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 import GoogleMapReact from 'google-map-react';
 import Marker from './Marker'
 

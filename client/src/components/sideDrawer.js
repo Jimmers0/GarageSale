@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 import {useSelector} from 'react-redux'
-import { logout, checkLogin } from '../actions/login.actions'
+import { logout } from '../actions/login.actions'
 import {Link} from 'react-router-dom'
 
 import '../styles/SideDrawer.css'
@@ -13,9 +13,9 @@ export default props => {
     drawerClasses = 'side-drawer open'
   }
     const login = useSelector(appState => appState.logged)
-    const userDetails = useSelector(appState => appState.userDetails)
+    // const userDetails = useSelector(appState => appState.userDetails)
 
-    let user = userDetails[0].id
+    // let user = userDetails[0].id
 
   return (
     <nav className={drawerClasses}>
