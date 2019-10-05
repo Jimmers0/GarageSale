@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
-import { getSavedSales, getWatchList } from '../actions/posting.actions'
+import { getSavedSales } from '../actions/posting.actions'
 import '../styles/savedgaragesales.css'
 import {Link} from 'react-router-dom'
 import moment from 'moment'
-import { checkLogin, authRedirect } from '../actions/login.actions';
+import { checkLogin } from '../actions/login.actions';
 import { Button } from 'semantic-ui-react'
 
 
@@ -23,7 +23,7 @@ export default props => {
     },[])
     useEffect (() => {
     getSavedSales(userid)
-    },[loginValid])
+    },[loginValid,userid])
 
     return loginValid ?
         <div className="listingcontent">

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import { useSelector } from 'react-redux'
 import { getWatchList, removeWatchItem } from '../actions/posting.actions'
 import { checkLogin} from '../actions/login.actions';
@@ -24,7 +24,7 @@ export default props => {
     getWatchList(userid)
         
 
-    },[loginValid])
+    },[loginValid, userid])
 
     return loginValid ?
         <div>

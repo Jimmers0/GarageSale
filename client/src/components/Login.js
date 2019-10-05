@@ -1,10 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import 'normalize.css/normalize.css'
 import '../styles/Login.css'
 import { login } from '../actions/login.actions'
 import { useSelector } from 'react-redux'
-import { checkLogin } from '../actions/login.actions'
-import { Button, Icon } from 'semantic-ui-react'
+
 
 
 
@@ -52,7 +51,7 @@ return loginValid ? <div className="fuckOff"><p>You are already logged in!</p></
        <div className="input">
   <label htmlFor="username">Password</label>
   <input className="inputbox"
-  type="text"
+  type="password"
   id="password"
   name="password"
   value={password}
@@ -64,7 +63,7 @@ return loginValid ? <div className="fuckOff"><p>You are already logged in!</p></
        
       
       <div className="submit">
-      <button class="ui blue button" onClick={signIn}>Sign In</button>
+      <button className="ui blue button" onClick={signIn}>Sign In</button>
       <div className="registerline">
        <div>Don't have an account?</div>
        <div color="blue" className="clickreg" onClick={sendRegister}>Register</div>

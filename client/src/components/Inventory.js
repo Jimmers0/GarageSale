@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react'
 import { useSelector } from 'react-redux' 
 import { getInventory } from '../actions/inventory.actions'
-import { checkLogin } from '../actions/login.actions'
 import '../styles/inventory.css'
 import InventoryItem from './InventoryItem'
 
