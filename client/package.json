@@ -11,7 +11,7 @@
     "google-map-react": "^1.1.4",
     "jsonwebtoken": "^8.5.1",
     "material-icons-react": "^1.0.4",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "normalize.css": "^8.0.1",
     "react": "^16.8.6",
     "react-burger-menu": "^2.6.11",
